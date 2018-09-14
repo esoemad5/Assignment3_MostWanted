@@ -22,8 +22,8 @@ function app(people){
 
 // Made this recursive to force searching by multiple critera until one person is found.
 function searchByTraits(people) {
-	let filteredPeople;
 	let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
+	let filteredPeople;
 
 	switch(userSearchChoice) {
 		case "height":
@@ -33,10 +33,22 @@ function searchByTraits(people) {
 		  filteredPeople = searchByWeight(people);
 		  break;
 		// so on and so forth
+		case "eye color":
+			filteredPeople = searchByEyeColor(people);
+			break;
+		case "gender":
+			filteredPeople = searchByGender(people);
+			break;
+		case "age":
+			filteredPeople = searchByAge(people);
+			break;
+		case "occupation":
+			filteredPeople = searchByOccupation(people);
+			break;
 		default:
-		  alert("You entered an invalid search type! Please try again.");
-		  searchByTraits(people);
-		  break;
+			alert("You entered an invalid search type! Please try again.");
+			searchByTraits(people);
+			break;
 	}  	
 	
 	if(filteredPeople.length == 1){
@@ -100,7 +112,11 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 
-  // TODO: find the person using the name they entered
+  people.filter(function(el){
+    if(people.firstName === firstName && people.lastName === lastName){
+      //do something with the info
+    }
+  })
 
 }
 
