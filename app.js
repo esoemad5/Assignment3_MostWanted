@@ -102,9 +102,23 @@ function mainMenu(person, people){
 			break;
 		case "family":
 			// TODO: get person's family
+			// use persons info (currentSpouse, or parents) to search people for a matching id, then output the found person's name.
 			/*
 			parents, currentSpouse, children
 			*/
+			let message = "";
+			if(person.parents.length > 0){
+				message += "Parents: ";
+				
+				for(let i = 0; i < person.parents.length; i++){
+					// TODO: Search data.js for  people by id.
+					
+					message += person.parents[i]
+				}
+			}
+			if(currentSpouse != null){
+				
+			}
 			break;
 		case "descendants":
 			// TODO: get person's descendants
