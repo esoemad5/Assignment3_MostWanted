@@ -102,22 +102,41 @@ function mainMenu(person, people){
 			break;
 		case "family":
 			// TODO: get person's family
-			// use persons info (currentSpouse, or parents) to search people for a matching id, then output the found person's name.
 			/*
 			parents, currentSpouse, children
 			*/
+			let personsParents;
+			let personsChildren;
 			let message = "";
 			if(person.parents.length > 0){
-				message += "Parents: ";
-				
+				message += person.firstName + " " + person.lastName + "'s parents: ";
 				for(let i = 0; i < person.parents.length; i++){
 					// TODO: Search data.js for  people by id.
-					
-					message += person.parents[i]
+					// filter out all non-parents, get an array
+					personsParents = person.parents.filter(function(el){
+						for(let j = 0; j < people.length; j++){
+							if(people[j].id == el){// If the person in data.js has an id that is an id in the found person's parents array.
+								return true;
+							}
+						}
+					});
 				}
+				
+				// different approach
+				personsParents = people.filter(function(el){
+					for(let i = 0; i < person.parents.length; i++){
+						
+					}
+				});
+			}
+			else{
+				message += person.firstName + " " + person.lastName + " has no parents (like batman). ";
 			}
 			if(currentSpouse != null){
-				
+				message += person.firstName + " " + person.lastName + "'s current spouse: ";
+			}
+			else{
+				message += person.firstName + " " + person.lastName + " has no spouse. They will likely die alone. ");
 			}
 			break;
 		case "descendants":
@@ -135,6 +154,7 @@ function mainMenu(person, people){
 			return mainMenu(person, people); // ask again
 	}
 }
+
 
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
