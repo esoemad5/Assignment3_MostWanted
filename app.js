@@ -126,8 +126,6 @@ function searchByAge(people){
   let userInputAge = prompt("How old is the person?");
 
   let newArray = people.filter(function(el){
-
-    }
     if(el.dob == ) 
     {
       return true;
