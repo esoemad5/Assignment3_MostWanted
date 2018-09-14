@@ -155,10 +155,7 @@ function mainMenu(person, people){
 	
 	switch(displayOption){
 		case "info":
-			// TODO: get person's info
-			/*
-			id, firstName, lastName, gender, dob, (age??), height, weight, eyeColor, occupation
-			*/
+			// DONE!
 			alert(person.firstName + person.lastName + "'s info: Gender: " + person.gender + ". Date of birth: " + person.dob + ". Height: " + person.height + ". Weight: " + person.weight + " Eye Color: " + person.eyeColor + ". Occupation:" + person.occupation + ".");
 			break;
 		case "family":
@@ -168,7 +165,7 @@ function mainMenu(person, people){
 			*/
 			if(person.parents.length > 0){
 				let personsParents = findParents(person, people); // Get an array of person objects that are the persons parents.
-				message += someWayToConvertAllThatToAMessageThatIllWriteLater();
+				//message += someWayToConvertAllThatToAMessageThatIllWriteLater();
 			}
 			else{
 				message += (person.firstName + " " + person.lastName + " has no parents (like batman). ");
@@ -195,12 +192,7 @@ function mainMenu(person, people){
 			return mainMenu(person, people); // ask again
 	}
 }
-function findParents(person, people){
-	
-}
-function someWayToConvertAllThatToAMessageThatIllWriteLater(){
-	
-}
+
 
 function addAge(people){
   for(i = 0; i < people.length; i++)
