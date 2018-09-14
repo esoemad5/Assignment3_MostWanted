@@ -3,51 +3,64 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
+
 function app(people){
-  var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  switch(searchType){
-    case 'yes':
-    searchByName(people);
-    break;
-    case 'no':
-    searchByTraits(people);
-    break;
-    default:
-    alert("Wrong! Please try again, following the instructions dummy. :)");
-    app(people); // restart app
-    break;
-  }
+	var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+	switch(searchType){
+		case 'yes':
+		// TODO: search by name
+		break;
+		case 'no':
+		searchByTraits(people);
+		break;
+		default:
+		alert("Wrong! Please try again, following the instructions dummy. :)");
+		app(people); // restart app
+		break;
+	}
 }
 
+// Made this recursive to force searching by multiple critera until one person is found.
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
-  let filteredPeople;
+	let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
+	let filteredPeople;
 
-  switch(userSearchChoice) {
-    case "height":
-      filteredPeople = searchByHeight(people);
-      break;
-    case "weight":
-      filteredPeople = searchByWeight(people);
-      break;
-    case "eye color" = searchByEyeColor(people);
-      break;
-    case "gender" = searchByGender(people);
-      break;
-    case "age" = searchByAge(people);
-      break;
-    case "occupation" = searchByOccupation(people);
-      break;
-    default:
-      alert("You entered an invalid search type! Please try again.");
-      searchByTraits(people);
-      break;
-  }  
-
-  let foundPerson = filteredPeople[0];
-
-  mainMenu(foundPerson, people);
-
+	switch(userSearchChoice) {
+		case "height":
+		  filteredPeople = searchByHeight(people);
+		  break;
+		case "weight":
+		  filteredPeople = searchByWeight(people);
+		  break;
+		// so on and so forth
+		case "eye color":
+			filteredPeople = searchByEyeColor(people);
+			break;
+		case "gender":
+			filteredPeople = searchByGender(people);
+			break;
+		case "age":
+			filteredPeople = searchByAge(people);
+			break;
+		case "occupation":
+			filteredPeople = searchByOccupation(people);
+			break;
+		default:
+			alert("You entered an invalid search type! Please try again.");
+			searchByTraits(people);
+			break;
+	}  	
+	
+	if(filteredPeople.length == 1){
+		mainMenu(people, filteredPeople[0]);
+	}
+	else{
+		let message = "Found ";
+		message += filteredPeople.length;
+		message += " people. Please add another search criteria.";
+		alert(message);
+		searchByTraits(filteredPeople);
+	}
 }
 
 function searchByWeight(people) {
