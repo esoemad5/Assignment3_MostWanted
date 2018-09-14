@@ -17,10 +17,13 @@
 
 
 /*
- * Returns an array of people objects that are the person's parents.
+ * Returns an array of people objects that are the person's parents. Returns null if no parents.
  * UNTESTED.
  */
-function findParents(person, people){ // Return an array of people objects that are the person's parents.
+function findParents(person, people){
+	if(person.parents.length == 0){
+		return null;
+	}
 	let output = people.filter(function(el){
 		for(let i = 0; i < person.parents.length; i++){
 			if(el.id == person.parents[i]{
@@ -28,6 +31,41 @@ function findParents(person, people){ // Return an array of people objects that 
 			}
 		}
 	});
+}
+
+
+/*
+ * Returns an arry of the persons children. Returns null if no children.
+ * UNTESTED.
+ */
+function findChildren(person, people){
+	let output = people.filter(function(el){
+		for(let i = 0; i < el.parents.length; i++){
+			if(person.id == el.parents[i]){
+				return true;
+			}
+		}
+	});
+	if (output.length == 0){
+		return null;
+	}
+	return output;
+}
+
+
+/*
+ * Return a people object that is the person's currentSpouse. Returns null if the person is single.
+ * UNTESTED.
+ */
+function findSpouse(person people){
+	if(person.currentSpouse == null){
+		return null;
+	}
+	for(let i = 0; i < people.length; i++){
+		if(person.currentSpouse == people[i].id){
+			return people[i];
+		}
+	}
 }
 
 /*
