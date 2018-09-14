@@ -3,6 +3,7 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
+
 function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
@@ -37,7 +38,8 @@ function searchByTraits(people) {
       break;
   }  
 
-  let foundPerson = filteredPeople[0];
+  // TODO: foundPerson will just be the 1st person on the list, need to narrow it down if multiple people.
+  let foundPerson = filteredPeople[0]; 
 
   mainMenu(foundPerson, people);
 
