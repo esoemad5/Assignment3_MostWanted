@@ -151,10 +151,8 @@ function mainMenu(person, people){
 
 	var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
+	let message = "";
 	
-	/*
-	
-	*/
 	switch(displayOption){
 		case "info":
 			// TODO: get person's info
@@ -168,32 +166,12 @@ function mainMenu(person, people){
 			/*
 			parents, currentSpouse, children
 			*/
-			let personsParents;
-			let personsChildren;
-			let message = "";
 			if(person.parents.length > 0){
-				message += person.firstName + " " + person.lastName + "'s parents: ";
-				for(let i = 0; i < person.parents.length; i++){
-					// TODO: Search data.js for  people by id.
-					// filter out all non-parents, get an array
-					personsParents = person.parents.filter(function(el){
-						for(let j = 0; j < people.length; j++){
-							if(people[j].id == el){// If the person in data.js has an id that is an id in the found person's parents array.
-								return true;
-							}
-						}
-					});
-				}
-				
-				// different approach
-				personsParents = people.filter(function(el){
-					for(let i = 0; i < person.parents.length; i++){
-						
-					}
-				});
+				let personsParents = findParents(person, people); // Get an array of person objects that are the persons parents.
+				message += someWayToConvertAllThatToAMessageThatIllWriteLater();
 			}
 			else{
-				message += person.firstName + " " + person.lastName + " has no parents (like batman). ";
+				message += (person.firstName + " " + person.lastName + " has no parents (like batman). ");
 			}
 			if(currentSpouse != null){
 				message += person.firstName + " " + person.lastName + "'s current spouse: ";
@@ -216,6 +194,12 @@ function mainMenu(person, people){
 		default:
 			return mainMenu(person, people); // ask again
 	}
+}
+function findParents(person, people){
+	
+}
+function someWayToConvertAllThatToAMessageThatIllWriteLater(){
+	
 }
 
 function addAge(people){
