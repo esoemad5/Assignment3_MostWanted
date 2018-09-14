@@ -91,12 +91,21 @@ function mainMenu(person, people){
 	switch(displayOption){
 		case "info":
 			// TODO: get person's info
+			/*
+			id, firstName, lastName, gender, dob, (age??), height, weight, eyeColor, occupation
+			*/
 			break;
 		case "family":
 			// TODO: get person's family
+			/*
+			parents, currentSpouse
+			*/
 			break;
 		case "descendants":
 			// TODO: get person's descendants
+			/*
+			only have info on people's parents, have to be creative.
+			*/
 			break;
 		case "restart":
 			app(people); // restart
