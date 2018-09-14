@@ -7,7 +7,7 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
-    // TODO: search by name
+    searchByName(people);
     break;
     case 'no':
     searchByTraits(people);
@@ -30,7 +30,14 @@ function searchByTraits(people) {
     case "weight":
       filteredPeople = searchByWeight(people);
       break;
-    // so on and so forth
+    case "eye color" = searchByEyeColor(people);
+      break;
+    case "gender" = searchByGender(people);
+      break;
+    case "age" = searchByAge(people);
+      break;
+    case "occupation" = searchByOccupation(people);
+      break;
     default:
       alert("You entered an invalid search type! Please try again.");
       searchByTraits(people);
@@ -92,7 +99,11 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 
-  // TODO: find the person using the name they entered
+  people.filter(function(el){
+    if(people.firstName === firstName && people.lastName === lastName){
+      //do something with the info
+    }
+  })
 
 }
 
