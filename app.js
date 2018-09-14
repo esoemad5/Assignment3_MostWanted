@@ -207,9 +207,9 @@ function addAge(people){
    {
       let dobArray = [];
 
-      for(let i = 0; i < 4; i++)
+      for(let j = 0; i < 4; i++)
       {
-        dobArray[i] = people.dob.pop();
+        dobArray[j] = people[i].dob[people[i].dob.length-1-j];
       }
       
     let dobString = dobArray.join("");
