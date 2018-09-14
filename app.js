@@ -88,17 +88,22 @@ function mainMenu(person, people){
 
 	var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
+	
+	/*
+	
+	*/
 	switch(displayOption){
 		case "info":
 			// TODO: get person's info
 			/*
 			id, firstName, lastName, gender, dob, (age??), height, weight, eyeColor, occupation
 			*/
+			alert(person.firstName + person.lastName + "'s info: Gender: " + person.gender + ". Date of birth: " + person.dob + ". Height: " + person.height + ". Weight: " + person.weight + " Eye Color: " + person.eyeColor + ". Occupation:" + person.occupation + ".");
 			break;
 		case "family":
 			// TODO: get person's family
 			/*
-			parents, currentSpouse
+			parents, currentSpouse, children
 			*/
 			break;
 		case "descendants":
