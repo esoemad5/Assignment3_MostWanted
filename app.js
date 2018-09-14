@@ -99,12 +99,12 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 
-  people.filter(function(el){
-    if(people.firstName === firstName && people.lastName === lastName){
-      //do something with the info
+  let person = people.filter(function(el){
+    if(el.firstName === firstName && el.lastName === lastName){
+      return true;
     }
-  })
-
+  displayPeople(person);
+  });
 }
 
 // alerts a list of people
