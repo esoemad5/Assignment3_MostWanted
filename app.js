@@ -4,6 +4,8 @@ Build all of your functions for displaying and gathering information below (GUI)
 
 // app is the function called to start the entire application
 
+let year = 2018;
+
 function app(people){
 	var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
 	switch(searchType){
@@ -66,14 +68,87 @@ function searchByTraits(people) {
 function searchByWeight(people) {
 	let userInputWeight = prompt("How much does the person weigh?");
 
-	let newArray = people.filter(function (el) {
-	if(el.weight == userInputWeight) {
+	let newArray = people.filter(function(el){
+    if(el.weight == userInputWeight) 
+    {
       return true;
     }
     // return true if el.weight matches userInputHeight
+    else if(el.height == userInputWeight) 
+    {
+      return true;
+    }
   });
 
   return newArray;
+}
+
+function searchByHeight(people){
+  let userInputHeight = prompt("How much does the person weigh?");
+
+  let newArray = people.filter(function(el){
+    if(el.height == userInputHeight) 
+    {
+      return true;
+    }
+  });
+
+  return newArray
+}
+
+function searchByGender(people){
+  let userInputGender = prompt("What is the persons gender?");
+
+  let newArray = people.filter(function(el){
+    if(el.gender == userInputGender) 
+    {
+      return true;
+    }
+  });
+
+  return newArray;
+}
+
+function searchByEyeColor(people){
+  let userInputEyeColor = prompt("What color are their eyes?");
+
+  let newArray = people.filter(function(el){
+    if(el.eyeColor == userInputEyeColor) 
+    {
+      return true;
+    }
+  });
+
+  return newArray;
+}
+
+function searchByAge(people){
+  let userInputAge = prompt("How old is the person?");
+
+  let newArray = people.filter(function(el){
+
+    }
+    if(el.dob == ) 
+    {
+      return true;
+    }
+  });
+
+  return newArray;
+}
+
+function addAge(people){
+  let dobArray = [];
+
+  for(i = -4, i < -1, i++){
+      let j = 0;
+      dobArray[j] = el.dob[i]
+      j++;
+    }
+  let dobString = dobArray.join("");
+  let dobYear = number(dobString);
+
+  let age = year - dobYear;
 }
 
 // Menu function to call once you find who you are looking for
@@ -112,12 +187,12 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 
-  let person = people.filter(function(el){
+  let newArray = people.filter(function(el){
     if(el.firstName === firstName && el.lastName === lastName){
       return true;
     }
   });
-  displayPeople(person);
+  return newArray;
 }
 
 // alerts a list of people
