@@ -163,15 +163,62 @@ function mainMenu(person, people){
 
 	var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
+	
+	/*
+	
+	*/
 	switch(displayOption){
 		case "info":
 			// TODO: get person's info
+			/*
+			id, firstName, lastName, gender, dob, (age??), height, weight, eyeColor, occupation
+			*/
+			alert(person.firstName + person.lastName + "'s info: Gender: " + person.gender + ". Date of birth: " + person.dob + ". Height: " + person.height + ". Weight: " + person.weight + " Eye Color: " + person.eyeColor + ". Occupation:" + person.occupation + ".");
 			break;
 		case "family":
 			// TODO: get person's family
+			/*
+			parents, currentSpouse, children
+			*/
+			let personsParents;
+			let personsChildren;
+			let message = "";
+			if(person.parents.length > 0){
+				message += person.firstName + " " + person.lastName + "'s parents: ";
+				for(let i = 0; i < person.parents.length; i++){
+					// TODO: Search data.js for  people by id.
+					// filter out all non-parents, get an array
+					personsParents = person.parents.filter(function(el){
+						for(let j = 0; j < people.length; j++){
+							if(people[j].id == el){// If the person in data.js has an id that is an id in the found person's parents array.
+								return true;
+							}
+						}
+					});
+				}
+				
+				// different approach
+				personsParents = people.filter(function(el){
+					for(let i = 0; i < person.parents.length; i++){
+						
+					}
+				});
+			}
+			else{
+				message += person.firstName + " " + person.lastName + " has no parents (like batman). ";
+			}
+			if(currentSpouse != null){
+				message += person.firstName + " " + person.lastName + "'s current spouse: ";
+			}
+			else{
+				message += person.firstName + " " + person.lastName + " has no spouse. They will likely die alone. ");
+			}
 			break;
 		case "descendants":
 			// TODO: get person's descendants
+			/*
+			only have info on people's parents, have to be creative.
+			*/
 			break;
 		case "restart":
 			app(people); // restart
@@ -182,6 +229,7 @@ function mainMenu(person, people){
 			return mainMenu(person, people); // ask again
 	}
 }
+
 
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
