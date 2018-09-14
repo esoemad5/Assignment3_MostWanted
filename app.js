@@ -5,44 +5,50 @@ Build all of your functions for displaying and gathering information below (GUI)
 // app is the function called to start the entire application
 
 function app(people){
-  var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  switch(searchType){
-    case 'yes':
-    // TODO: search by name
-    break;
-    case 'no':
-    searchByTraits(people);
-    break;
-    default:
-    alert("Wrong! Please try again, following the instructions dummy. :)");
-    app(people); // restart app
-    break;
-  }
+	var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+	switch(searchType){
+		case 'yes':
+		// TODO: search by name
+		break;
+		case 'no':
+		searchByTraits(people);
+		break;
+		default:
+		alert("Wrong! Please try again, following the instructions dummy. :)");
+		app(people); // restart app
+		break;
+	}
 }
 
+// Made this recursive to force searching by multiple critera until one person is found.
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
-  let filteredPeople;
+	let filteredPeople;
+	let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
 
-  switch(userSearchChoice) {
-    case "height":
-      filteredPeople = searchByHeight(people);
-      break;
-    case "weight":
-      filteredPeople = searchByWeight(people);
-      break;
-    // so on and so forth
-    default:
-      alert("You entered an invalid search type! Please try again.");
-      searchByTraits(people);
-      break;
-  }  
-
-  // TODO: foundPerson will just be the 1st person on the list, need to narrow it down if multiple people.
-  let foundPerson = filteredPeople[0]; 
-
-  mainMenu(foundPerson, people);
-
+	switch(userSearchChoice) {
+		case "height":
+		  filteredPeople = searchByHeight(people);
+		  break;
+		case "weight":
+		  filteredPeople = searchByWeight(people);
+		  break;
+		// so on and so forth
+		default:
+		  alert("You entered an invalid search type! Please try again.");
+		  searchByTraits(people);
+		  break;
+	}  	
+	
+	if(filteredPeople.length == 1){
+		mainMenu(people, filteredPeople[0]);
+	}
+	else{
+		let message = "Found ";
+		message += filteredPeople.length;
+		message += " people. Please add another search criteria.";
+		alert(message);
+		searchByTraits(filteredPeople);
+	}
 }
 
 function searchByWeight(people) {
