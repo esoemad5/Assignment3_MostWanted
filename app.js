@@ -7,6 +7,8 @@ Build all of your functions for displaying and gathering information below (GUI)
 let year = 2018;
 
 function app(people){
+  addAge(people);
+
 	var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
 	switch(searchType){
 		case 'yes':
@@ -112,7 +114,8 @@ function searchByGender(people){
 function searchByEyeColor(people){
   let userInputEyeColor = prompt("What color are their eyes?");
 
-  let newArray = people.filter(function(el){
+  let newArray = people.filter(function(el)
+  {
     if(el.eyeColor == userInputEyeColor) 
     {
       return true;
@@ -122,33 +125,18 @@ function searchByEyeColor(people){
   return newArray;
 }
 
-function searchByAge(people){
+function searchByAge(people)
+{
   let userInputAge = prompt("How old is the person?");
 
-  let newArray = people.filter(function(el){
-
-    }
-    if(el.dob == ) 
+  let newArray = people.filter(function(el)
+  {
+    if(el.age == userInputAge) 
     {
       return true;
     }
   });
-
   return newArray;
-}
-
-function addAge(people){
-  let dobArray = [];
-
-  for(i = -4, i < -1, i++){
-      let j = 0;
-      dobArray[j] = el.dob[i]
-      j++;
-    }
-  let dobString = dobArray.join("");
-  let dobYear = number(dobString);
-
-  let age = year - dobYear;
 }
 
 // Menu function to call once you find who you are looking for
@@ -211,7 +199,7 @@ function mainMenu(person, people){
 				message += person.firstName + " " + person.lastName + "'s current spouse: ";
 			}
 			else{
-				message += person.firstName + " " + person.lastName + " has no spouse. They will likely die alone. ");
+				message += person.firstName + " " + person.lastName + " has no spouse. They will likely die alone. ";
 			}
 			break;
 		case "descendants":
@@ -228,6 +216,25 @@ function mainMenu(person, people){
 		default:
 			return mainMenu(person, people); // ask again
 	}
+}
+
+function addAge(people){
+  for(i = 0; i < people.length; i++)
+   {
+      let dobArray = [];
+
+      for(let i = 0; i < 4; i++)
+      {
+        dobArray[i] = people.dob.pop();
+      }
+      
+    let dobString = dobArray.join("");
+    let dobYear = Number(dobString);
+
+    people[i].age = year - dobYear;
+
+    console.log(people[1].age);
+  }
 }
 
 
