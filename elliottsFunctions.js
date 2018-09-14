@@ -29,3 +29,40 @@ function findParents(person, people){ // Return an array of people objects that 
 		}
 	});
 }
+
+/*
+ * Takes an array of people. Returns a string of the peoples first and last names, seperated by a comma (and space).
+ * UNTESTED.
+ */
+function convertArrayOfPeopleToListOfNames(listOfPeople){
+	let extraComma = "";
+	extraComma += listOfPeople.reduce(function(names, el){
+		names += ", " + el.firstName + " " + el.lastName;		
+	});
+	let output = "";
+	for(let i = 2; 2 < extraComma.length; i++){ // Remove the extra ", "
+		output += extraComma[i];
+	}
+	return output;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

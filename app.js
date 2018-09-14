@@ -155,16 +155,16 @@ function mainMenu(person, people){
 	
 	switch(displayOption){
 		case "info":
-			// DONE!
+// DONE!
 			alert(person.firstName + person.lastName + "'s info: Gender: " + person.gender + ". Date of birth: " + person.dob + ". Height: " + person.height + ". Weight: " + person.weight + " Eye Color: " + person.eyeColor + ". Occupation:" + person.occupation + ".");
 			break;
 		case "family":
-			// TODO: get person's family
+// TODO: get person's family
 			/*
 			parents, currentSpouse, children
 			*/
 			if(person.parents.length > 0){
-				let personsParents = findParents(person, people); // Get an array of person objects that are the persons parents.
+				let personsParents = findParents(person, people); // Is an array of people.
 				//message += someWayToConvertAllThatToAMessageThatIllWriteLater();
 			}
 			else{
@@ -178,7 +178,7 @@ function mainMenu(person, people){
 			}
 			break;
 		case "descendants":
-			// TODO: get person's descendants
+// TODO: get person's descendants
 			/*
 			only have info on people's parents, have to be creative.
 			*/
