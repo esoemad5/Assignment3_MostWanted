@@ -1,5 +1,5 @@
 function displayInTable(people){
-	let output = "<tr><th>ID</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>eyeColor</th><th>Occupation</th><th>Parents</th><th>Current Spouse</th><th>Children</th></tr>";
+	let output = "<tr><th>Select this person</th><th>ID</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>eyeColor</th><th>Occupation</th><th>Parents</th><th>Current Spouse</th><th>Children</th></tr>";
 	for(let i = 0; i < people.length; i++){
 		output += "<tr><td>";
 		output += people[i].firstName + " ";
