@@ -2,7 +2,12 @@
 
 }
 
-#menu{
-	float: left;
-	list-style-type: none;
+#header{
+	display: inline;
+	height: 20%;
+	background-color: gray;
+	padding-bottom: 20px;
+	padding-top: 0px;
+	margin-top: 0px;
+	font-size: 20px
 }
