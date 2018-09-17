@@ -9,6 +9,10 @@ Build all of your functions for displaying and gathering information below (GUI)
 
 // app is the function called to start the entire application
 
+function test(){
+	document.getElementById("test2").innerHTML = "Part 2";
+}
+
 let year = 2018;
 
 function app(people){
@@ -76,7 +80,7 @@ function searchByTraits(people) {
 		message += filteredPeople.length;
 		message += " people. Please add another search criteria.";
 		alert(message);
-		searchByTraits(filteredPeople);
+		searchByTraits(filteredPeople); // We loose the original array when this is called.
 	}
 }
 
