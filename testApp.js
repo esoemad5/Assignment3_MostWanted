@@ -14,15 +14,15 @@ let year = 2018;
 function app(people){
   addAge(people);
 
-	var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+	var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'").toLowerCase();
 	switch(searchType){
-		case 'yes':
+	case 'yes':
 		searchByName(people);
 		break;
-		case 'no':
+	case 'no':
 		searchByTraits(people);
 		break;
-		default:
+	default:
 		alert("Wrong! Please try again, following the instructions dummy. :)");
 		app(people); // restart app
 		break;
@@ -65,7 +65,7 @@ function searchByTraits(people) {
 	}  	
 	
 	if(filteredPeople.length == 1){
-		mainMenu(filteredPeople[0], people); // HERE
+		mainMenu(filteredPeople[0], people);
 	}
 	if(filteredPeople.length == 0){
 		alert("Found 0 people. Restarting search.");
@@ -159,7 +159,7 @@ function searchByOccupation(people){
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-	console.log(person);
+
 	/* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
 	if(!person){
@@ -189,7 +189,7 @@ function mainMenu(person, people){
 			else{
 				message += (person.firstName + " " + person.lastName + " has no parents (like batman). ");
 			}
-			if(currentSpouse != null){
+			if(person.currentSpouse != null){
 				message += person.firstName + " " + person.lastName + "'s current spouse: ";
 			}
 			else{
@@ -231,7 +231,7 @@ function addAge(people){
 
     people[i].age = year - dobYear;
 
-    //console.log(people[1].age);
+    console.log(people[1].age);
   }
 }
 
