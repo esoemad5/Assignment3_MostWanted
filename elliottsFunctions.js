@@ -22,38 +22,9 @@ function test(){
 	console.log(c);
 }
 
-function searchButton(){
-	let searchTerm = document.getElementById("searchBar").value;
-	let radios = document.getElementsByName("searchCriteria");
-	let searchCriteria
-	for (let i = 0; i < radios.length; i++){
-		if(radios[i].checked == true){
-			searchCriteria = radios[i].value;
-		}
-	}
-	/*
-	switch(searchCriteria){
-		case "":
-		case "":
-		case "":
-		case "":
-		case "":
-		case "":
-		case "":
-		case "":
-		case "":
-		default:
-			console.log("A radio button was left unchecked.");
-			return;
-			break;
-	}
-	*/
-	console.log(searchTerm, searchCriteria);
-}
 
-function resetButton(){
-	// table reset, pass 'data' back in.
-}
+
+
 
 function tableButton(){
 	//mainMenu the person. Go by id

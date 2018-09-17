@@ -11,123 +11,63 @@ Build all of your functions for displaying and gathering information below (GUI)
 
 
 let year = 2018;
+let people = data;
+addAge(people);
+let currentArray = people;
 
-function app(people){
+function resetButton(){
+	people = data;
 	addAge(people);
-	
+	document.getElementById("tableData").innerHTML = "";
+	currentArray = people;
 }
 
-// Made this recursive to force searching by multiple critera until one person is found.
-function searchByTraits(people) {
-	console.log("Started searchByTraits");
-	let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
-	let filteredPeople;
-
-	switch(userSearchChoice) {
-		case "height":
-		  filteredPeople = searchByHeight(people);
-		  break;
-		case "weight":
-		  filteredPeople = searchByWeight(people);
-		  break;
-		// so on and so forth
-		case "eye color":
-			filteredPeople = searchByEyeColor(people);
-			break;
+function searchButton(){
+	let searchTerm = document.getElementById("searchBar").value;
+	let radios = document.getElementsByName("searchCriteria");
+	let searchCriteria
+	for (let i = 0; i < radios.length; i++){
+		if(radios[i].checked == true){
+			searchCriteria = radios[i].value;
+		}
+	}
+	let shortenedArray;
+	switch(searchCriteria){
+		case "id":
+			shortenedArray = serachById(searchTerm, currentArray);
+		case "firstName":
+			shortenedArray = serachByFirstName(searchTerm, currentArray);
+		case "lastName":
+			shortenedArray = serachByLastName(searchTerm, currentArray);
 		case "gender":
-			filteredPeople = searchByGender(people);
-			break;
+			shortenedArray = serachByGender(searchTerm, currentArray);
 		case "age":
-			filteredPeople = searchByAge(people);
-			break;
+			shortenedArray = serachByAge(searchTerm, currentArray);
+		case "height":
+			shortenedArray = serachByHeight(searchTerm, currentArray);
+		case "weight":
+			shortenedArray = serachByWeight(searchTerm, currentArray);
+		case "eyeColor":
+			shortenedArray = serachByEyeColor(searchTerm, currentArray);
 		case "occupation":
-			filteredPeople = searchByOccupation(people);
-			break;
-		case "quit":
-			alert("Thank you for using Most Wanted. Exiting now.");
+			shortenedArray = serachByOccupation(searchTerm, currentArray);
+		default:
+			console.log("A radio button was left unchecked.");
 			return;
 			break;
-		default:
-			alert("You entered an invalid search type! Please try again.");
-			searchByTraits(people);
-			break;
-	}  	
+	}
+	if(shortenedArray.length == 0){
+		alert("Search returned 0 results.");
+		return;
+	}
 	
-	if(filteredPeople.length == 1){
-		mainMenu(filteredPeople[0], people);
-	}
-	if(filteredPeople.length == 0){
-		alert("Found 0 people. Restarting search.");
-		searchByTraits(people);
-	}
-	else{
-		let message = "Found ";
-		message += filteredPeople.length;
-		message += " people. Please add another search criteria.";
-		
-		document.getElementById("tableData").innerHTML = displayInTable(filteredPeople); 
-		alert(message);
-		searchByTraits(filteredPeople); // We loose the original array when this is called.
-	}
-	console.log("finished searchByTraits");
+	currentArray = shortenedArray;
+	//have array, make it into the table
+	//console.log(searchTerm, searchCriteria);
 }
 
-// Menu function to call once you find who you are looking for
-function mainMenu(person, people){
-	console.log("started main menu");
-
-	/* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
-	if(!person){
-		alert("Could not find that individual.");
-		return app(data); // restart
-	}
 
 
-	var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
-	
-	switch(displayOption){// All changes have been made in this switch and the few lines below it. Also, the 'message' variable above was removed.
-		case "info":
-			alert(person.firstName + person.lastName + "'s info: Gender: " + person.gender + ". Date of birth: " + person.dob + ". Height: " + person.height + " inches. Weight: " + person.weight + " Eye Color: " + person.eyeColor + ". Occupation: " + person.occupation + ".");
-			break;
-		case "family":
-			console.log(person.parents.length);
-			if(person.parents.length > 0){
-				console.log(findParents(person, data)); // Returns an array of the persons parents.			
-			}
-			else{
-				alert(person.firstName + " " + person.lastName + " has no parents (like batman). ");
-			}
-			if(person.currentSpouse != null){
-				let spouse = data.filter(function(el){
-						if(person.currentSpouse == el.id){
-							return true;
-						}
-					});	
-				alert(person.firstName + " " + person.lastName + "'s current spouse: " + spouse.firstName + " " + spouse.lastName);
-			}
-			else{
-				message += person.firstName + " " + person.lastName + " has no spouse. They will likely die alone. ";
-			}
-			break;
-		case "descendants":
-// TODO: get person's descendants
-			/*
-			only have info on people's parents, have to be creative.
-			*/
-			findChildren(person, data);
-			break;
-		case "restart":
-			app(data); // restart
-			break;
-		case "quit":
-			return; // stop execution
-		default:
-			return mainMenu(person, people); // ask again
-	}
-	mainMenu(person, people);
-	console.log("finished main menu");
-}
 
 
 function addAge(people){
@@ -149,70 +89,17 @@ function addAge(people){
 }
 
 
-function searchByName(people){
-	var firstName = promptFor("What is the person's first name?", chars);
-	var lastName = promptFor("What is the person's last name?", chars);
-	let message = "No one found in the database with the name: " + firstName + "  " + lastName + ".";
-	let newArray = people.filter(function(el){
-		if(el.firstName === firstName && el.lastName === lastName){
+// Search Functions. All return a new, shorter array.
+// TODO: Add searchByFirstName and searchByLastName; make functions work with new way of input.
+
+
+function searchByWeight(input, array) {
+	let newArray = array.filter(function(el){
+		if(el.weight == input){
 			return true;
 		}
-		});
-	if(newArray.length != 1){
-		alert(message);
-	}
-	else{
-		mainMenu(newArray[0], data);
-	}
-}
-
-// alerts a list of people
-function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n"));
-}
-
-function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
-  var personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
-  alert(personInfo);
-}
-
-// function that prompts and validates user input
-function promptFor(question, callback){
-  do{
-    var response = prompt(question).trim();
-  } while(!response || !callback(response));
-  return response;
-}
-
-// helper function to pass into promptFor to validate yes/no answers
-function yesNo(input){
-  return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
-}
-
-// helper function to pass in as default promptFor validation
-function chars(input){
-  return true; // default validation only
-}
-
-
-
-function searchByWeight(people) {
-	let userInputWeight = prompt("How much does the person weigh?");
-
-	let newArray = people.filter(function(el){
-    if(el.weight == userInputWeight) 
-    {
-      return true;
-    }
-  });
-
-  return newArray;
+	});
+	return newArray;
 }
 
 function searchByHeight(people){
@@ -255,8 +142,7 @@ function searchByEyeColor(people){
   return newArray;
 }
 
-function searchByAge(people)
-{
+function searchByAge(people){
   let userInputAge = prompt("How old is the person?");
 
   let newArray = people.filter(function(el)
