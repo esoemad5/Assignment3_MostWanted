@@ -86,7 +86,15 @@ function convertArrayOfPeopleToListOfNames(listOfPeople){
 
 
 
-
+function searchByOccupation(people){
+	let userInputOccupation = prompt("What is the person's occupation?");
+	let newArray = poeple.filter(function(el)
+	{
+		if(el.age == userInputAge){
+			return true;
+		}
+	});
+}
 
 
 

@@ -16,7 +16,8 @@ function test(){
 let year = 2018;
 
 function app(people){
-  addAge(people);
+	addAge(people);
+	console.log("Started app");
 
 	var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'").toLowerCase();
 	switch(searchType){
@@ -31,10 +32,12 @@ function app(people){
 		app(data); // restart app
 		break;
 	}
+	console.log("finished app");
 }
 
 // Made this recursive to force searching by multiple critera until one person is found.
 function searchByTraits(people) {
+	console.log("Started searchByTraits");
 	let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation'.");
 	let filteredPeople;
 
@@ -82,6 +85,7 @@ function searchByTraits(people) {
 		alert(message);
 		searchByTraits(filteredPeople); // We loose the original array when this is called.
 	}
+	console.log("finished searchByTraits");
 }
 
 function searchByWeight(people) {
@@ -163,6 +167,7 @@ function searchByOccupation(people){
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
+	console.log("started main menu");
 
 	/* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
@@ -186,9 +191,9 @@ function mainMenu(person, people){
 			/*
 			parents, currentSpouse, children
 			*/
-			console.log("here");
+			console.log(person.parents.length);
 			if(person.parents.length > 0){
-				let personsParents = findParents(person, people); // Is an array of people.
+				let personsParents = findParents(person, data); // Is an array of people.
 				//message += someWayToConvertAllThatToAMessageThatIllWriteLater();
 			}
 			else{
@@ -196,6 +201,7 @@ function mainMenu(person, people){
 			}
 			if(person.currentSpouse != null){
 				message += person.firstName + " " + person.lastName + "'s current spouse: ";
+				// get spouse
 			}
 			else{
 				message += person.firstName + " " + person.lastName + " has no spouse. They will likely die alone. ";
@@ -215,8 +221,11 @@ function mainMenu(person, people){
 		default:
 			return mainMenu(person, people); // ask again
 	}
+	console.log(message);
+	alert(message);
 	
 	mainMenu(person, people);
+	console.log("finished main menu");
 }
 
 
@@ -240,15 +249,20 @@ function addAge(people){
 
 
 function searchByName(people){
-  var firstName = promptFor("What is the person's first name?", chars);
-  var lastName = promptFor("What is the person's last name?", chars);
-
-  let newArray = people.filter(function(el){
-    if(el.firstName === firstName && el.lastName === lastName){
-      return true;
-    }
-  });
-  return newArray;
+	var firstName = promptFor("What is the person's first name?", chars);
+	var lastName = promptFor("What is the person's last name?", chars);
+	let message = "No one found in the database with the name: " + firstName + "  " + lastName + ".";
+	let newArray = people.filter(function(el){
+		if(el.firstName === firstName && el.lastName === lastName){
+			return true;
+		}
+		});
+	if(newArray.length != 1){
+		alert(message);
+	}
+	else{
+		mainMenu(newArray[0], data);
+	}
 }
 
 // alerts a list of people
