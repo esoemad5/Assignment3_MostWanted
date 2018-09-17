@@ -48,6 +48,11 @@ function searchByTraits(people) {
 			break;
 		case "occupation":
 			filteredPeople = searchByOccupation(people);
+			console.log(filteredPeople);
+			break;
+		case "quit":
+			alert("Thank you for using Most Wanted. Exiting now.");
+			return;
 			break;
 		default:
 			alert("You entered an invalid search type! Please try again.");
@@ -58,9 +63,8 @@ function searchByTraits(people) {
 	if(filteredPeople.length == 1){
 		mainMenu(people, filteredPeople[0]);
 	}
-	else if (filteredPeople.length == 0){
-		let message = "Found 0 people. Restarting search.";
-		alert(message);
+	if(filteredPeople.length == 0){
+		alert("Found 0 people. Restarting search.");
 		searchByTraits(people);
 	}
 	else{
@@ -76,22 +80,17 @@ function searchByWeight(people) {
 	let userInputWeight = prompt("How much does the person weigh?");
 
 	let newArray = people.filter(function(el){
-		if(el.weight == userInputWeight) 
-		{
-		  return true;
-		}
-		// return true if el.weight matches userInputWeight
-		else if(el.height == userInputWeight) 
-		{
-		  return true;
-		}
-	});
+    if(el.weight == userInputWeight) 
+    {
+      return true;
+    }
+  });
 
   return newArray;
 }
 
 function searchByHeight(people){
-  let userInputHeight = prompt("How tall is this person in inches?");
+  let userInputHeight = prompt("How much does the person weigh?");
 
   let newArray = people.filter(function(el){
     if(el.height == userInputHeight) 
@@ -100,7 +99,7 @@ function searchByHeight(people){
     }
   });
 
-	return newArray
+  return newArray
 }
 
 function searchByGender(people){
@@ -130,7 +129,8 @@ function searchByEyeColor(people){
   return newArray;
 }
 
-function searchByAge(people){
+function searchByAge(people)
+{
   let userInputAge = prompt("How old is the person?");
 
   let newArray = people.filter(function(el)
@@ -142,15 +142,15 @@ function searchByAge(people){
   });
   return newArray;
 }
-
 function searchByOccupation(people){
 	let userInputOccupation = prompt("What is the person's occupation?");
 	let newArray = poeple.filter(function(el)
 	{
-		if(el.age == userInputAge){
+		if(el.occupation == userInputOccupation){
 			return true;
 		}
 	});
+	return newArray;
 }
 
 // Menu function to call once you find who you are looking for
