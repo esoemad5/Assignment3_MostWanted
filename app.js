@@ -212,12 +212,13 @@ function addAge(people){
    {
       let dobArray = [];
 
-      for(let j = 0; i < 4; i++)
+      for(let j = 0; j < 4; j++)
       {
         dobArray[j] = people[i].dob[people[i].dob.length-1-j];
       }
       
-    let dobString = dobArray.join("");
+    let dobString = dobArray.reverse();
+    dobString = dobString.join("");
     let dobYear = Number(dobString);
 
     people[i].age = year - dobYear;
