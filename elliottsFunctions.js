@@ -26,44 +26,12 @@ function test(){
 
 
 
-function tableButton(){
-	//mainMenu the person. Go by id
-}
-
-/*
- * Returns an array of people objects that are the person's parents. Returns null if no parents.
- */
-function findParents(person, people){
-	if(person.parents.length == 0){
-		return null;
-	}
-	let output = people.filter(function(el){
-		for(let i = 0; i < person.parents.length; i++){
-			if(el.id == person.parents[i]){
-				return true;
-			}
-		}
-	});
-	return output;
-}
 
 
-/*
- * Returns an arry of the persons children. Returns null if no children.
- */
-function findChildren(person, people){
-	let output = people.filter(function(el){
-		for(let i = 0; i < el.parents.length; i++){
-			if(person.id == el.parents[i]){
-				return true;
-			}
-		}
-	});
-	if (output.length == 0){
-		return null;
-	}
-	return output;
-}
+
+
+
+
 
 
 
@@ -71,6 +39,7 @@ function findChildren(person, people){
 /*
  * Takes an array of people. Returns a string of the peoples first and last names, seperated by a comma (and space).
  * Doesnt work
+ * Probably dont need this function
  */
 function convertArrayOfPeopleToListOfNames(listOfPeople){
 	let extraComma = "";
@@ -86,19 +55,6 @@ function convertArrayOfPeopleToListOfNames(listOfPeople){
 	}
 	return output;
 }
-
-
-
-function searchByOccupation(people){
-	let userInputOccupation = prompt("What is the person's occupation?");
-	let newArray = poeple.filter(function(el)
-	{
-		if(el.age == userInputAge){
-			return true;
-		}
-	});
-}
-
 
 
 

@@ -86,12 +86,15 @@ function searchButton(){
  */
  function mainMenu(){ // On click of a button next to a person in the table.
 	let output = "";
-	//Remove all other people from the table
+	//Need to change the table. Leave the button? New column is relation to found person. Show found person in another table above the family table?
  
  
 	document.getElementById("lookupArea").innerHTML = output;
- }
+}
 
+function tableButton(){
+	//mainMenu the person. Go by id
+}
 
 
  /*
@@ -106,6 +109,40 @@ function findSpouse(person, people){
 			return people[i];
 		}
 	}
+}
+
+/*
+ * Returns an arry of the persons children. Returns null if no children.
+ */
+function findChildren(person, people){
+	let output = people.filter(function(el){
+		for(let i = 0; i < el.parents.length; i++){
+			if(person.id == el.parents[i]){
+				return true;
+			}
+		}
+	});
+	if (output.length == 0){
+		return null;
+	}
+	return output;
+}
+
+/*
+ * Returns an array of people objects that are the person's parents. Returns null if no parents.
+ */
+function findParents(person, people){
+	if(person.parents.length == 0){
+		return null;
+	}
+	let output = people.filter(function(el){
+		for(let i = 0; i < person.parents.length; i++){
+			if(el.id == person.parents[i]){
+				return true;
+			}
+		}
+	});
+	return output;
 }
  
  
