@@ -20,7 +20,8 @@ function resetButton(){
 	addAge(people);
 	document.getElementById("tableData").innerHTML = "";
 	currentArray = people;
-	document.getElementById("lookupArea").innerHTML = "";
+	//document.getElementById("lookupArea").innerHTML = "";
+	
 	alert("Search terms reset.");
 }
 
@@ -67,15 +68,14 @@ function searchButton(){
 			return;
 			break;
 	}
-	if(shortenedArray.length == 0){
+	if(shortenedArray.length == 0){ // If constraints are too heavy, or input is invalid, the search will not happen, and the array/table will remain the same.
 		alert("Search returned 0 results.");
 		return;
 	}
 	
 	currentArray = shortenedArray;
-	
-	console.log(currentArray);
-	//have array, make it into the table
+	document.getElementById("tableData").innerHTML = displayInTable(currentArray);
+
 	//console.log(searchTerm, searchCriteria);
 }
 
@@ -94,6 +94,36 @@ function searchButton(){
 
 function tableButton(){
 	//mainMenu the person. Go by id
+}
+
+function displayInTable(peopleArray){
+	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
+	for(let i = 0; i < peopleArray.length; i++){
+		output += "<tr><td></td><td>";
+		output += peopleArray[i].firstName + " ";
+		output += peopleArray[i].lastName;
+		output += "</td>";
+		output += "<td>";
+		output += peopleArray[i].gender;
+		output += "</td>";
+		output += "<td>";
+		output += peopleArray[i].age;
+		output += "</td>";
+		output += "<td>";
+		output += peopleArray[i].height;
+		output += "</td>";
+		output += "<td>";
+		output += peopleArray[i].weight;
+		output += "</td>";
+		output += "<td>";
+		output += peopleArray[i].eyeColor;
+		output += "</td>";
+		output += "<td>";
+		output += peopleArray[i].occupation;
+		output += "</td></tr>";
+	}
+
+	return output;
 }
 
 
