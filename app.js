@@ -94,7 +94,7 @@ function searchByWeight(people) {
 }
 
 function searchByHeight(people){
-  let userInputHeight = prompt("How much does the person weigh?");
+  let userInputHeight = prompt("How tall is the person in inches?");
 
   let newArray = people.filter(function(el){
     if(el.height == userInputHeight) 
@@ -182,6 +182,7 @@ function mainMenu(person, people){
 			/*
 			parents, currentSpouse, children
 			*/
+			console.log("here");
 			if(person.parents.length > 0){
 				let personsParents = findParents(person, people); // Is an array of people.
 				//message += someWayToConvertAllThatToAMessageThatIllWriteLater();
@@ -230,8 +231,6 @@ function addAge(people){
     let dobYear = Number(dobString);
 
     people[i].age = year - dobYear;
-
-    console.log(people[1].age);
   }
 }
 
