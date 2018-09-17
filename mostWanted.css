@@ -1,43 +1,5 @@
 .displayTable{
 	display: block;
-}
-
-.displayTablePersonName{
-
-}
-
-.displayID{
-
-}
-
-.displayGenfer{
-
-}
-
-.displayAge{
-
-}
-
-.displayWeight{
-
-}
-
-.displayEyeColor{
-
-}
-
-.displayOccupation{
-
-}
-
-.displayParents{
-
-}
-
-.displayCurrentSpouse{
-
-}
-
-.displayChildren{
-	
+	border: 2px black;
+	text-align: center;
 }

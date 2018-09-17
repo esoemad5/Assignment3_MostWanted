@@ -5,7 +5,7 @@ Search on single critera:
 	You can, but if multiple results, you are forced to search on 2-5 critera.
 
 Search on 2-5 critera:
-	Works, but Joey and Elen Madden have all the same traits. Need to allow user to pick from a shortened list.
+	Works, but Joey and Ellen Madden have all the same traits. Need to allow user to pick from a shortened list.
 
 Lookup Info:
 	Doesn't work.
