@@ -4,7 +4,7 @@
  
  /*
   * x.map(function(el){}), x.filter(function(el){}), x.reduce(function(total, el){})
-  * Perfom function on each element in the array.
+  * Perfom function on each element (el) in the array.
   * .map returns an array of the return values after performing the function on each element in x (el).
   * the function in .filter must return true or false. .filter will return the array x, minus all the el's that the function returned false for. The array will be shorter, the false el's won't go to null/void/NaN/undefined/etc...
   * .reduce will return total after performing the function with each of it's elements as el.

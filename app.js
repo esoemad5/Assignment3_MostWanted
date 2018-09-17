@@ -58,6 +58,11 @@ function searchByTraits(people) {
 	if(filteredPeople.length == 1){
 		mainMenu(people, filteredPeople[0]);
 	}
+	else if (filteredPeople.length == 0){
+		let message = "Found 0 people. Restarting search.";
+		alert(message);
+		searchByTraits(people);
+	}
 	else{
 		let message = "Found ";
 		message += filteredPeople.length;
@@ -71,22 +76,22 @@ function searchByWeight(people) {
 	let userInputWeight = prompt("How much does the person weigh?");
 
 	let newArray = people.filter(function(el){
-    if(el.weight == userInputWeight) 
-    {
-      return true;
-    }
-    // return true if el.weight matches userInputHeight
-    else if(el.height == userInputWeight) 
-    {
-      return true;
-    }
-  });
+		if(el.weight == userInputWeight) 
+		{
+		  return true;
+		}
+		// return true if el.weight matches userInputWeight
+		else if(el.height == userInputWeight) 
+		{
+		  return true;
+		}
+	});
 
   return newArray;
 }
 
 function searchByHeight(people){
-  let userInputHeight = prompt("How much does the person weigh?");
+  let userInputHeight = prompt("How tall is this person in inches?");
 
   let newArray = people.filter(function(el){
     if(el.height == userInputHeight) 
@@ -95,7 +100,7 @@ function searchByHeight(people){
     }
   });
 
-  return newArray
+	return newArray
 }
 
 function searchByGender(people){
@@ -125,8 +130,7 @@ function searchByEyeColor(people){
   return newArray;
 }
 
-function searchByAge(people)
-{
+function searchByAge(people){
   let userInputAge = prompt("How old is the person?");
 
   let newArray = people.filter(function(el)
@@ -137,6 +141,16 @@ function searchByAge(people)
     }
   });
   return newArray;
+}
+
+function searchByOccupation(people){
+	let userInputOccupation = prompt("What is the person's occupation?");
+	let newArray = poeple.filter(function(el)
+	{
+		if(el.age == userInputAge){
+			return true;
+		}
+	});
 }
 
 // Menu function to call once you find who you are looking for
