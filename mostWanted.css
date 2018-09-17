@@ -2,27 +2,40 @@
 
 #header{
 	height: 30%;
-	background-color: gray;
+	background-color: white;
+	color: gray;
 	padding-bottom: 20px;
 	padding-top: 20px;
 	margin-top: 0px;
 	font-size: 20px
 }
 
+#searchBar{
+	border: none;
+	padding-top: 0px;
+	padding-left: 0px;
+	overflow: hidden;
+	resize: none;
+}
+
 #searchButton:hover{
-	background-color: #80e5ff;
+	background-color: white;
+	color: gray;
+	text-transform: italic;
 }
 
 #resetButton:hover{
-	background-color: #80e5ff;
-}
-
-#searchBar{
-	height: 10%;
+	background-color: white;
+	color: gray;
 }
 
 #searchMenu{
 	list-style: none;
 	display: inline;
 	overflow: hidden;
+	color: white;
+}
+
+body{
+	background-color: gray;
 }
