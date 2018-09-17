@@ -14,11 +14,16 @@
   * Thus, a loop inside one of these array functions will likely result in them being O(n^2).
   */
  
-
+function test(){
+	let a = 10;
+	console.log(data[a]);
+	let b = findParents(data[a], data);
+	let c = convertArrayOfPeopleToListOfNames(b);
+	console.log(c);
+}
 
 /*
  * Returns an array of people objects that are the person's parents. Returns null if no parents.
- * UNTESTED.
  */
 function findParents(person, people){
 	if(person.parents.length == 0){
@@ -31,12 +36,12 @@ function findParents(person, people){
 			}
 		}
 	});
+	return output;
 }
 
 
 /*
  * Returns an arry of the persons children. Returns null if no children.
- * UNTESTED.
  */
 function findChildren(person, people){
 	let output = people.filter(function(el){
@@ -55,7 +60,6 @@ function findChildren(person, people){
 
 /*
  * Return a people object that is the person's currentSpouse. Returns null if the person is single.
- * UNTESTED.
  */
 function findSpouse(person, people){
 	if(person.currentSpouse == null){
@@ -70,15 +74,18 @@ function findSpouse(person, people){
 
 /*
  * Takes an array of people. Returns a string of the peoples first and last names, seperated by a comma (and space).
- * UNTESTED.
+ * Doesnt work
  */
 function convertArrayOfPeopleToListOfNames(listOfPeople){
 	let extraComma = "";
+	console.log(listOfPeople);
 	extraComma += listOfPeople.reduce(function(names, el){
+		console.log(el.firstName, el.lastName);
 		names += ", " + el.firstName + " " + el.lastName;		
 	});
+	console.log(extraComma);
 	let output = "";
-	for(let i = 2; 2 < extraComma.length; i++){ // Remove the extra ", "
+	for(let i = 2; i < extraComma.length; i++){ // Remove the extra ", "
 		output += extraComma[i];
 	}
 	return output;

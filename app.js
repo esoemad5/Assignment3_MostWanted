@@ -9,10 +9,6 @@ Build all of your functions for displaying and gathering information below (GUI)
 
 // app is the function called to start the entire application
 
-function test(){
-	document.getElementById("test2").innerHTML = "Part 2";
-}
-
 let year = 2018;
 
 function app(people){
@@ -214,6 +210,7 @@ function mainMenu(person, people){
 			/*
 			only have info on people's parents, have to be creative.
 			*/
+			findChildren(person, data);
 			break;
 		case "restart":
 			app(data); // restart
