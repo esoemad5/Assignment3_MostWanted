@@ -23,9 +23,9 @@ function test(){
 }
 
 function searchButton(){
-	let searchTerm = //get from search bar
+	let searchTerm = document.getElementsByName("searchBar").value;
 	let searchCritera = document.getElementsByName("searchCritera");
-	//let radios = document.getElementsByName("direction");
+	/*
 	switch(searchCritera){
 		case "":
 		case "":
@@ -41,6 +41,8 @@ function searchButton(){
 			return;
 			break;
 	}
+	*/
+	console.log(searchTerm, searchCritera);
 }
 
 function resetButton(){
