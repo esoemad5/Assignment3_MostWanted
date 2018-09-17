@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>devCodeCamp &middot; Most Wanted</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="mostWanted.css">
     <script src = "elliottsFunctions.js"></script>
     <script src = "maxsFunctions.js"></script>
@@ -14,20 +15,20 @@
     <div id="header"><center>Ask Elliott (and Max)</center></div>
 
     <div>
-      <table id="searchMenu">
-      <tr>
-      <td><textarea type="text" placeholder="Search" id="searchBar"></textarea></td>
+      <table>
+      <tr id="searchMenu">
+      <td><textarea type="text.btn" placeholder="Search" id="searchBar"></textarea></td>
 
-      <td <button class="searchButton" onClick="searchButton()" type="submit" id="searchButton">Submit</button></td>
+      <td <button class="searchButton.btn" onClick="searchButton()" type="submit" id="searchButton">Submit</button></td>
 
-      <td <button type="resetButton" id="resetButton" onClick="resetButton()">Clear</button></td>
+      <td <button type="resetButton.btn" id="resetButton" onClick="resetButton()">Clear</button></td>
       </tr>
       </table>
 
     </div>
 
 
-    <input type="radio" id="id" value="id" name="searchCriteria" checked> Id <br></input>
+    <input type="radio" id="id" value="id" name="searchCriteria" checked > Id <br></input>
     <input type="radio" id="firstName" value="firstName" name="searchCriteria"> First Name <br></input>
     <input type="radio" id="lastName" value="lastName" name="searchCriteria"> Last Name <br></input>
     <input type="radio" id="gender" value="gender" name="searchCriteria"> Gender <br></input>

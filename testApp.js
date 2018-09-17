@@ -102,11 +102,9 @@ function searchByWeight(input, array) {
 	return newArray;
 }
 
-function searchByHeight(people){
-  let userInputHeight = prompt("How tall is the person in inches?");
-
-  let newArray = people.filter(function(el){
-    if(el.height == userInputHeight) 
+function searchByHeight(input, array){
+  let newArray = array.filter(function(el){
+    if(el.height == input) 
     {
       return true;
     }
@@ -115,11 +113,9 @@ function searchByHeight(people){
   return newArray
 }
 
-function searchByGender(people){
-  let userInputGender = prompt("What is the persons gender?");
-
-  let newArray = people.filter(function(el){
-    if(el.gender == userInputGender) 
+function searchByGender(input, array){
+  let newArray = array.filter(function(el){
+    if(el.gender == input) 
     {
       return true;
     }
@@ -128,12 +124,10 @@ function searchByGender(people){
   return newArray;
 }
 
-function searchByEyeColor(people){
-  let userInputEyeColor = prompt("What color are their eyes?");
-
-  let newArray = people.filter(function(el)
+function searchByEyeColor(input, array){
+  let newArray = array.filter(function(el)
   {
-    if(el.eyeColor == userInputEyeColor) 
+    if(el.eyeColor == input) 
     {
       return true;
     }
@@ -142,12 +136,10 @@ function searchByEyeColor(people){
   return newArray;
 }
 
-function searchByAge(people){
-  let userInputAge = prompt("How old is the person?");
-
-  let newArray = people.filter(function(el)
+function searchByAge(input, array){
+  let newArray = array.filter(function(el)
   {
-    if(el.age == userInputAge) 
+    if(el.age == input) 
     {
       return true;
     }
@@ -155,11 +147,10 @@ function searchByAge(people){
   return newArray;
 }
 
-function searchByOccupation(people){
-	let userInputOccupation = prompt("What is the person's occupation?");
-	let newArray = people.filter(function(el)
+function searchByOccupation(input, array){
+	let newArray = array.filter(function(el)
 	{
-		if(el.occupation == userInputOccupation){
+		if(el.occupation == input){
 			return true;
 		}
 	});

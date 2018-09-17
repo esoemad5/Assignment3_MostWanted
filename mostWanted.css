@@ -14,14 +14,17 @@
 	border: none;
 	padding-top: 0px;
 	padding-left: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
 	overflow: hidden;
 	resize: none;
+	font-size: 15px;
+	text-align: left;
 }
 
 #searchButton:hover{
 	background-color: white;
 	color: gray;
-	text-transform: italic;
 }
 
 #resetButton:hover{
@@ -33,7 +36,8 @@
 	list-style: none;
 	display: inline;
 	overflow: hidden;
-	color: white;
+	color: black;
+	height: 20px;
 }
 
 body{
