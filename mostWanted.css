@@ -1,6 +1,4 @@
-#clearButton{
 
-}
 
 #header{
 	height: 30%;
@@ -11,15 +9,20 @@
 	font-size: 20px
 }
 
-#searchButton{
-	margin-top: 10px;
-
-}
-
 #searchButton:hover{
 	background-color: #80e5ff;
 }
 
-#clearButton:hover{
+#resetButton:hover{
 	background-color: #80e5ff;
+}
+
+#searchBar{
+	height: 10%;
+}
+
+#searchMenu{
+	list-style: none;
+	display: inline;
+	overflow: hidden;
 }
