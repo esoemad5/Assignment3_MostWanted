@@ -3,11 +3,23 @@
 }
 
 #header{
-	display: inline;
-	height: 20%;
+	height: 30%;
 	background-color: gray;
 	padding-bottom: 20px;
-	padding-top: 0px;
+	padding-top: 20px;
 	margin-top: 0px;
 	font-size: 20px
+}
+
+#searchButton{
+	margin-top: 10px;
+
+}
+
+#searchButton:hover{
+	background-color: #80e5ff;
+}
+
+#clearButton:hover{
+	background-color: #80e5ff;
 }
