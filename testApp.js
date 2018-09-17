@@ -16,15 +16,15 @@ function app(people){
 
 	var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'").toLowerCase();
 	switch(searchType){
-		case 'yes':
+	case 'yes':
 		searchByName(people);
 		break;
-		case 'no':
+	case 'no':
 		searchByTraits(people);
 		break;
-		default:
+	default:
 		alert("Wrong! Please try again, following the instructions dummy. :)");
-		app(data); // restart app
+		app(people); // restart app
 		break;
 	}
 }
@@ -94,7 +94,7 @@ function searchByWeight(people) {
 }
 
 function searchByHeight(people){
-  let userInputHeight = prompt("How tall is the person in inches?");
+  let userInputHeight = prompt("How much does the person weigh?");
 
   let newArray = people.filter(function(el){
     if(el.height == userInputHeight) 
@@ -164,7 +164,7 @@ function mainMenu(person, people){
 
 	if(!person){
 		alert("Could not find that individual.");
-		return app(data); // restart
+		return app(people); // restart
 	}
 
 
@@ -182,7 +182,6 @@ function mainMenu(person, people){
 			/*
 			parents, currentSpouse, children
 			*/
-			console.log("here");
 			if(person.parents.length > 0){
 				let personsParents = findParents(person, people); // Is an array of people.
 				//message += someWayToConvertAllThatToAMessageThatIllWriteLater();
@@ -204,7 +203,7 @@ function mainMenu(person, people){
 			*/
 			break;
 		case "restart":
-			app(data); // restart
+			app(people); // restart
 			break;
 		case "quit":
 			return; // stop execution
@@ -231,6 +230,8 @@ function addAge(people){
     let dobYear = Number(dobString);
 
     people[i].age = year - dobYear;
+
+    console.log(people[1].age);
   }
 }
 
