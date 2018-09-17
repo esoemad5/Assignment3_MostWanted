@@ -65,7 +65,7 @@ function searchByTraits(people) {
 	}  	
 	
 	if(filteredPeople.length == 1){
-		mainMenu(filteredPeople[0], people);
+		mainMenu(filteredPeople[0], people); // HERE
 	}
 	if(filteredPeople.length == 0){
 		alert("Found 0 people. Restarting search.");
@@ -159,7 +159,7 @@ function searchByOccupation(people){
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-
+	console.log(person);
 	/* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
 	if(!person){
@@ -231,7 +231,7 @@ function addAge(people){
 
     people[i].age = year - dobYear;
 
-    console.log(people[1].age);
+    //console.log(people[1].age);
   }
 }
 
