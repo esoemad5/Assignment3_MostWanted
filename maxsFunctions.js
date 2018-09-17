@@ -2,38 +2,40 @@ function displayInTable(people){
 	let output = "";
 	for(let i = 0; i < people.length; i++){
 		output += "<tr><td>";
-		output += person.id;
+		output += people[i].id;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.firstName;
-		output += person.lastName;
+		output += people[i].firstName;
+		output += people[i].lastName;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.gender:
+		output += people[i].gender;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.age;
+		output += people[i].age;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.height;
+		output += people[i].height;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.weight;
+		output += people[i].weight;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.eyeColor;
+		output += people[i].eyeColor;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.occupation;
+		output += people[i].occupation;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.parents;
+		output += people[i].parents;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.currentSpouse;
+		output += people[i].currentSpouse;
 		output += "</tr></td>";
 		output += "<tr><td>";
-		output += person.children;
+		output += people[i].children;
 		output += "</tr></td>";
 	}
+
+	return output;
 }
