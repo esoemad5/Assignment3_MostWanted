@@ -210,6 +210,8 @@ function mainMenu(person, people){
 		default:
 			return mainMenu(person, people); // ask again
 	}
+	
+	mainMenu(person, people);
 }
 
 
