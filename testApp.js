@@ -34,25 +34,34 @@ function searchButton(){
 	let shortenedArray;
 	switch(searchCriteria){
 		case "id":
-			shortenedArray = serachById(searchTerm, currentArray);
+			shortenedArray = searchById(searchTerm, currentArray);
+			break;
 		case "firstName":
-			shortenedArray = serachByFirstName(searchTerm, currentArray);
+			shortenedArray = searchByFirstName(searchTerm, currentArray);
+			break;
 		case "lastName":
-			shortenedArray = serachByLastName(searchTerm, currentArray);
+			shortenedArray = searchByLastName(searchTerm, currentArray);
+			break;
 		case "gender":
-			shortenedArray = serachByGender(searchTerm, currentArray);
+			shortenedArray = searchByGender(searchTerm, currentArray);
+			break;
 		case "age":
-			shortenedArray = serachByAge(searchTerm, currentArray);
+			shortenedArray = searchByAge(searchTerm, currentArray);
+			break;
 		case "height":
-			shortenedArray = serachByHeight(searchTerm, currentArray);
+			shortenedArray = searchByHeight(searchTerm, currentArray);
+			break;
 		case "weight":
-			shortenedArray = serachByWeight(searchTerm, currentArray);
+			shortenedArray = searchByWeight(searchTerm, currentArray);
+			break;
 		case "eyeColor":
-			shortenedArray = serachByEyeColor(searchTerm, currentArray);
+			shortenedArray = searchByEyeColor(searchTerm, currentArray);
+			break;
 		case "occupation":
-			shortenedArray = serachByOccupation(searchTerm, currentArray);
+			shortenedArray = searchByOccupation(searchTerm, currentArray);
+			break;
 		default:
-			console.log("A radio button was left unchecked.");
+			console.log(searchCriteria);
 			return;
 			break;
 	}
@@ -62,6 +71,7 @@ function searchButton(){
 	}
 	
 	currentArray = shortenedArray;
+	console.log(currentArray);
 	//have array, make it into the table
 	//console.log(searchTerm, searchCriteria);
 }
@@ -92,42 +102,36 @@ function addAge(people){
 // Search Functions. All return a new, shorter array.
 // TODO: Add searchByFirstName and searchByLastName; make functions work with new way of input.
 
-
-function searchByWeight(input, array) {
+function searchById(input, array) {
 	let newArray = array.filter(function(el){
-		if(el.weight == input){
+		if(el.id == input){
 			return true;
 		}
 	});
 	return newArray;
 }
 
-function searchByHeight(input, array){
-  let newArray = array.filter(function(el){
-    if(el.height == input) 
-    {
-      return true;
-    }
-  });
+function searchByFirstName(input, array) {
+	let newArray = array.filter(function(el){
+		if(el.firstName == input){
+			return true;
+		}
+	});
+	return newArray;
+}
 
-  return newArray
+function searchByLastName(input, array) {
+	let newArray = array.filter(function(el){
+		if(el.lastName == input){
+			return true;
+		}
+	});
+	return newArray;
 }
 
 function searchByGender(input, array){
   let newArray = array.filter(function(el){
     if(el.gender == input) 
-    {
-      return true;
-    }
-  });
-
-  return newArray;
-}
-
-function searchByEyeColor(input, array){
-  let newArray = array.filter(function(el)
-  {
-    if(el.eyeColor == input) 
     {
       return true;
     }
@@ -144,6 +148,38 @@ function searchByAge(input, array){
       return true;
     }
   });
+  return newArray;
+}
+
+function searchByHeight(input, array){
+  let newArray = array.filter(function(el){
+    if(el.height == input) 
+    {
+      return true;
+    }
+  });
+
+  return newArray
+}
+
+function searchByWeight(input, array) {
+	let newArray = array.filter(function(el){
+		if(el.weight == input){
+			return true;
+		}
+	});
+	return newArray;
+}
+
+function searchByEyeColor(input, array){
+  let newArray = array.filter(function(el)
+  {
+    if(el.eyeColor == input) 
+    {
+      return true;
+    }
+  });
+
   return newArray;
 }
 
