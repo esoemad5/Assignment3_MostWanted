@@ -26,7 +26,7 @@ function findParents(person, people){
 	}
 	let output = people.filter(function(el){
 		for(let i = 0; i < person.parents.length; i++){
-			if(el.id == person.parents[i]{
+			if(el.id == person.parents[i]){
 				return true;
 			}
 		}
@@ -57,7 +57,7 @@ function findChildren(person, people){
  * Return a people object that is the person's currentSpouse. Returns null if the person is single.
  * UNTESTED.
  */
-function findSpouse(person people){
+function findSpouse(person, people){
 	if(person.currentSpouse == null){
 		return null;
 	}
