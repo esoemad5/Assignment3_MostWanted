@@ -2,6 +2,11 @@
 Build all of your functions for displaying and gathering information below (GUI).
 */
 
+/* Bug List:
+ * Joey and Elen are the same person. Makes searching by traits wonky.
+ * Sometimes quitting in searchByTraits returns an error in the console (filteredPeople.length is undefined). Somehow the function searchByTraits keeps happening dispite hitting a return statement. Need to look at all the things that call searchByTraits.
+ */
+
 // app is the function called to start the entire application
 
 let year = 2018;
@@ -161,6 +166,7 @@ function mainMenu(person, people){
 		alert("Could not find that individual.");
 		return app(people); // restart
 	}
+
 
 	var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
