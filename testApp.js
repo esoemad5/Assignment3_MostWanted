@@ -20,6 +20,8 @@ function resetButton(){
 	addAge(people);
 	document.getElementById("tableData").innerHTML = "";
 	currentArray = people;
+	document.getElementById("lookupArea").innerHTML = "";
+	alert("Search terms reset.");
 }
 
 function searchButton(){
@@ -71,15 +73,42 @@ function searchButton(){
 	}
 	
 	currentArray = shortenedArray;
+	
 	console.log(currentArray);
 	//have array, make it into the table
 	//console.log(searchTerm, searchCriteria);
 }
 
+/*
+ * Main Menu stuff.
+ * Need to show family, info, and descendants
+ *
+ */
+ function mainMenu(){ // On click of a button next to a person in the table.
+	let output = "";
+	//Remove all other people from the table
+ 
+ 
+	document.getElementById("lookupArea").innerHTML = output;
+ }
 
 
 
-
+ /*
+  * Return a people object that is the person's currentSpouse. Returns null if the person is single.
+  */
+function findSpouse(person, people){
+	if(person.currentSpouse == null){
+		return null;
+	}
+	for(let i = 0; i < people.length; i++){
+		if(person.currentSpouse == people[i].id){
+			return people[i];
+		}
+	}
+}
+ 
+ 
 function addAge(people){
   for(i = 0; i < people.length; i++)
    {
@@ -192,3 +221,46 @@ function searchByOccupation(input, array){
 	});
 	return newArray;
 }
+
+
+
+
+/* Code that my be needed later
+
+// alerts a list of people
+function displayPeople(people){
+  alert(people.map(function(person){
+    return person.firstName + " " + person.lastName;
+  }).join("\n"));
+}
+
+function displayPerson(person){
+  // print all of the information about a person:
+  // height, weight, age, name, occupation, eye color.
+  var personInfo = "First Name: " + person.firstName + "\n";
+  personInfo += "Last Name: " + person.lastName + "\n";
+  // TODO: finish getting the rest of the information to display
+  alert(personInfo);
+}
+
+// function that prompts and validates user input
+function promptFor(question, callback){
+  do{
+    var response = prompt(question).trim();
+  } while(!response || !callback(response));
+  return response;
+}
+
+// helper function to pass into promptFor to validate yes/no answers
+function yesNo(input){
+  return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
+}
+
+// helper function to pass in as default promptFor validation
+function chars(input){
+  return true; // default validation only
+}
+
+
+
+*/

@@ -66,19 +66,7 @@ function findChildren(person, people){
 }
 
 
-/*
- * Return a people object that is the person's currentSpouse. Returns null if the person is single.
- */
-function findSpouse(person, people){
-	if(person.currentSpouse == null){
-		return null;
-	}
-	for(let i = 0; i < people.length; i++){
-		if(person.currentSpouse == people[i].id){
-			return people[i];
-		}
-	}
-}
+
 
 /*
  * Takes an array of people. Returns a string of the peoples first and last names, seperated by a comma (and space).
