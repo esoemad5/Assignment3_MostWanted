@@ -3,7 +3,7 @@
 #header{
 	height: 30%;
 	background-color: white;
-	color: gray;
+	color: black;
 	padding-bottom: 20px;
 	padding-top: 20px;
 	margin-top: 0px;
@@ -11,35 +11,6 @@
 }
 
 #searchBar{
-	border: none;
-	padding-top: 0px;
-	padding-left: 0px;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-	overflow: hidden;
 	resize: none;
-	font-size: 15px;
-	text-align: left;
-}
-
-#searchButton:hover{
-	background-color: white;
-	color: gray;
-}
-
-#resetButton:hover{
-	background-color: white;
-	color: gray;
-}
-
-#searchMenu{
-	list-style: none;
-	display: inline;
-	overflow: hidden;
-	color: black;
-	height: 20px;
-}
-
-body{
-	background-color: gray;
+	background-size: 20px;
 }
