@@ -22,6 +22,35 @@ function test(){
 	console.log(c);
 }
 
+function searchButton(){
+	let searchTerm = //get from search bar
+	let searchCritera = document.getElementsByName("searchCritera");
+	//let radios = document.getElementsByName("direction");
+	switch(searchCritera){
+		case "":
+		case "":
+		case "":
+		case "":
+		case "":
+		case "":
+		case "":
+		case "":
+		case "":
+		default:
+			console.log("A radio button was left unchecked.");
+			return;
+			break;
+	}
+}
+
+function resetButton(){
+	// table reset, pass 'data' back in.
+}
+
+function tableButton(){
+	//mainMenu the person. Go by id
+}
+
 /*
  * Returns an array of people objects that are the person's parents. Returns null if no parents.
  */
