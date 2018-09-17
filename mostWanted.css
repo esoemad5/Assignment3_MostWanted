@@ -1,4 +1,8 @@
-.searchButton:hover{
-	background-color: black;
-	color: red;
+#clearButton{
+
+}
+
+#menu{
+	float: left;
+	list-style-type: none;
 }
