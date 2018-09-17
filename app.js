@@ -48,7 +48,6 @@ function searchByTraits(people) {
 			break;
 		case "occupation":
 			filteredPeople = searchByOccupation(people);
-			console.log(filteredPeople);
 			break;
 		case "quit":
 			alert("Thank you for using Most Wanted. Exiting now.");
@@ -144,7 +143,7 @@ function searchByAge(people)
 }
 function searchByOccupation(people){
 	let userInputOccupation = prompt("What is the person's occupation?");
-	let newArray = poeple.filter(function(el)
+	let newArray = people.filter(function(el)
 	{
 		if(el.occupation == userInputOccupation){
 			return true;
