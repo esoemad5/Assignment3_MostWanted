@@ -189,7 +189,7 @@ function mainMenu(person, people){
 			else{
 				message += (person.firstName + " " + person.lastName + " has no parents (like batman). ");
 			}
-			if(currentSpouse != null){
+			if(person.currentSpouse != null){
 				message += person.firstName + " " + person.lastName + "'s current spouse: ";
 			}
 			else{
