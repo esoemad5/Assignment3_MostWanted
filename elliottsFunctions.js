@@ -23,10 +23,16 @@ function test(){
 }
 
 function searchButton(){
-	let searchTerm = document.getElementsByName("searchBar").value;
-	let searchCritera = document.getElementsByName("searchCritera");
+	let searchTerm = document.getElementById("searchBar").value;
+	let radios = document.getElementsByName("searchCriteria");
+	let searchCriteria
+	for (let i = 0; i < radios.length; i++){
+		if(radios[i].checked == true){
+			searchCriteria = radios[i].value;
+		}
+	}
 	/*
-	switch(searchCritera){
+	switch(searchCriteria){
 		case "":
 		case "":
 		case "":
@@ -42,7 +48,7 @@ function searchButton(){
 			break;
 	}
 	*/
-	console.log(searchTerm, searchCritera);
+	console.log(searchTerm, searchCriteria);
 }
 
 function resetButton(){
