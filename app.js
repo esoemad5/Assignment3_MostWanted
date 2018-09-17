@@ -82,6 +82,9 @@ function searchByTraits(people) {
 		let message = "Found ";
 		message += filteredPeople.length;
 		message += " people. Please add another search criteria.";
+		
+		//document.getElementById("tableData").innerHTML = displayInTable(filteredPeople); 
+		document.getElementById("test").innerHTML = displayInTable(filteredPeople);
 		alert(message);
 		searchByTraits(filteredPeople); // We loose the original array when this is called.
 	}

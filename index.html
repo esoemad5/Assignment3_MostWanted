@@ -4,17 +4,20 @@
     <meta charset="utf-8">
     <title>devCodeCamp &middot; Most Wanted</title>
     <link rel="stylesheet" type="text/css" href="mostWanted.css">
+    <script src = "elliottsFunctions.js"></script>
+    <script src = "maxsFunctions.js"></script>
   </head>
   <body>
     <button onclick="app(data)">Start Searching</button>
     <script src="data.js"></script>
     <script src="app.js"></script>
 
-    <table class="displayTable"><script type="text/javascript" src="maxsFunctions.js"></script></table>
+   <table id = "test"></table>
 	
 	<table><tr><th>ID</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>eyeColor</th><th>Occupation</th><th>Parents</th><th>Current Spouse</th><th>Children</th></tr><div id="tableData">   </div></table>
 	<!-- javascript to add to table
 	
+    <table id = "test"></table>
 	document.getElementById(tableData).innerHTML = displayInTable(smallerPersonArray);
 
 -->
