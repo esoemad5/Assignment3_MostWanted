@@ -24,7 +24,7 @@ function app(people){
 		break;
 		default:
 		alert("Wrong! Please try again, following the instructions dummy. :)");
-		app(people); // restart app
+		app(data); // restart app
 		break;
 	}
 }
@@ -164,7 +164,7 @@ function mainMenu(person, people){
 
 	if(!person){
 		alert("Could not find that individual.");
-		return app(people); // restart
+		return app(data); // restart
 	}
 
 
@@ -204,7 +204,7 @@ function mainMenu(person, people){
 			*/
 			break;
 		case "restart":
-			app(people); // restart
+			app(data); // restart
 			break;
 		case "quit":
 			return; // stop execution
