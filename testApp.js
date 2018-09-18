@@ -88,7 +88,7 @@ function searchButton(){
 	let output = "";
 	
 	// make a new array for the table.
-	person.relstionship = ""
+	person.relationship = "Self"
 	currentArray = [person];
 	
 	// add parents
@@ -101,10 +101,19 @@ function searchButton(){
 
 	
 	// add spouse
-	let spouse = findSpouse(person, people)
-	if(spouse != null){
+	//let spouse = findSpouse(person, people)
+	if(findSpouse(person, people) != null){
+		findSpouse(person, people).map(function(el){
+			el.relationship = "Spouse";
+			currentArray.push(el);
+		});
+		
+		/*
+		console.log("here");
 		spouse.relstionship = "Spouse";
+		console.log(spouse.relationship);
 		currentArray.push(spouse);
+		*/
 	}
 	
 	// add descendants
@@ -118,7 +127,7 @@ function searchButton(){
 }
 
  /*
-  * Return a people object that is the person's currentSpouse. Returns null if the person is single.
+  * Return a people object that is the person's currentSpouse. Returns null if the person is single. testing returning an array length 1
   */
 function findSpouse(person, people){
 	if(person.currentSpouse == null){
@@ -126,7 +135,11 @@ function findSpouse(person, people){
 	}
 	for(let i = 0; i < people.length; i++){
 		if(person.currentSpouse == people[i].id){
-			return people[i];
+			let output = []
+			output.push(people[i]);
+			//console.log(output);
+			return output;
+			//return people[i];
 		}
 	}
 }
