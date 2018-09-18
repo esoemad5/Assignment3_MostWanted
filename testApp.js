@@ -110,7 +110,7 @@ function searchButton(){
 	// add descendants
 	let descendants = findDescendants(person, people);
 	if( descendants != null){
-		currentArray.concat(descendants);
+		currentArray = currentArray.concat(descendants);
 	}
 	//make array into table.
 	document.getElementById("tableData").innerHTML = displayInTable(currentArray, true);
