@@ -26,4 +26,4 @@ function displayInTable(people){
 	}
 
 	return output;
-}  
+}
