@@ -111,6 +111,7 @@ function searchButton(){
 	// need to rewrite function to be recursive and look past 1 generation
 	
 	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
+	displayInTable(currentArray, true);
  
 	//document.getElementById("lookupArea").innerHTML = output;
 	console.log(currentArray);
@@ -126,11 +127,9 @@ function displayInTable(peopleArray, showRelationshipToElement0){
 	else{
 		
 		output += "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
-		console.log(output);
 
 	}
 	for(let i = 0; i < peopleArray.length; i++){
-		console.log(i);
 		output += '<tr><td><button onClick="mainMenu(currentArray['+i+'])">Select this person</button> &nbsp </td><td>'; // There is a possible issue with this line if the rest of the code is modified. Check here if there is an issue with the people butttons.
 		if(showRelationshipToElement0){ output += peopleArray[i].relationship; output += "</td><td>" }
 		output += peopleArray[i].firstName + " ";
@@ -155,7 +154,7 @@ function displayInTable(peopleArray, showRelationshipToElement0){
 		output += peopleArray[i].occupation;
 		output += "</td></tr>";
 	}
-
+	console.log(output);
 	return output;
 }
 
