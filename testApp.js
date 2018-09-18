@@ -111,11 +111,11 @@ function searchButton(){
 	// need to rewrite function to be recursive and look past 1 generation
 	
 	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
+	displayInTable(currentArray, true);
  
 	//document.getElementById("lookupArea").innerHTML = output;
 	console.log(currentArray);
 }
-
 
  /*
   * Return a people object that is the person's currentSpouse. Returns null if the person is single.
