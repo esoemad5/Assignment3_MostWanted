@@ -4,8 +4,7 @@ function displayInTable(peopleArray, showRelationshipToElement0){
 		output += "<tr><th>Select this person</th><th>Relationship to Selection</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
 
 	}
-	else{
-		
+	else{ 	
 		output += "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
 	}
 	for(let i = 0; i < peopleArray.length; i++){
