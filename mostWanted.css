@@ -14,3 +14,12 @@
 	resize: none;
 	background-size: 20px;
 }
+
+th{
+	padding: 5px;
+	margin: 5px;
+}
+
+td{
+	padding: 5px;
+}
