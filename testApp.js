@@ -108,6 +108,7 @@ function searchButton(){
 	}
 	
 	// add descendants
+	//findDescendants(person, people);
 	// need to rewrite function to be recursive and look past 1 generation
 	
 	//make array into table.
@@ -154,12 +155,35 @@ function findChildren(person, people){
 
 /*
  * Returns an array of all children, grand-children, great-grandchildren, and so on.
+ * Each iteration returns an array of the person's children concatenated to the end of whatever array was passed to it.
  */
-function findDescendants(person, people, output = []){ 
+function findDescendants(person, people, output = [], grand = 0){ 
+	let generation = [];
+	people.map(function(el){ // Find all children in this generation.
+		for(let i = 0; i < el.parents.length; i++){
+			if(person.id == el.parents[i]){
+				if(grand == 0){ el.relationship = "Child"; }
+				if(grand == 1){ el.relationship = "Grandchild"; }
+				else{
+					let rel = "Great-";
+					for(let k = 2; k < grand; k++){
+						rel += "great-";
+					}					
+					rel += "Grandchild"
+				}
+				
+				generation.push(el);
+			}
+		}
+	});
 	
-	
-	if (output.length == 0){
+	if (generation.length == 0){ // Terminating condition.
 		return null;
+	}
+	output.concat(generation);
+	grand++;
+	for(let j = 0; j < generation.length; i++){ // Find this generation's children.
+		output = findDescendants(generation[j], people, output, grand);
 	}
 	return output;
 }
