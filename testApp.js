@@ -86,7 +86,7 @@ function searchButton(){
  */
  function mainMenu(person){ // On click of a button next to a person in the table.
 	//let output = "";
-	console.log("mainMenu");
+	console.log(person);
 	// make a new array for the table.
 	//currentArray = [person];
 	// add parents, test for null
@@ -104,10 +104,8 @@ function searchButton(){
 
 function displayInTable(peopleArray){
 	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
-	let a = [7, 8];
 	for(let i = 0; i < peopleArray.length; i++){
-		//output += '<tr><td><button onClick="mainMenu('+peopleArray[i]+')">Select this person</button> &nbsp </td><td>';
-		output += '<tr><td><button onClick="console.log(' + a[0] + ');">Select this person</button> &nbsp </td><td>';
+		output += '<tr><td><button onClick="mainMenu(peopleArray[i])">Select this person</button> &nbsp </td><td>';
 		output += peopleArray[i].firstName + " ";
 		output += peopleArray[i].lastName;
 		output += "</td>";
