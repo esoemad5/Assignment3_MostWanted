@@ -108,14 +108,16 @@ function searchButton(){
 	}
 	
 	// add descendants
-	//findDescendants(person, people);
-	// need to rewrite function to be recursive and look past 1 generation
-	
+	let descendants = findDescendants(person, people);
+	if( descendants != null){
+		currentArray = currentArray.concat(descendants);
+	}
 	//make array into table.
 	document.getElementById("tableData").innerHTML = displayInTable(currentArray, true);
  
 	//document.getElementById("lookupArea").innerHTML = output; Only for a joke
-	console.log(currentArray);
+	
+	//console.log(currentArray);
 }
 
  /*
@@ -129,9 +131,7 @@ function findSpouse(person, people){
 		if(person.currentSpouse == people[i].id){
 			let output = []
 			output.push(people[i]);
-			//console.log(output);
 			return output;
-			//return people[i];
 		}
 	}
 }
@@ -163,7 +163,7 @@ function findDescendants(person, people, output = [], grand = 0){
 		for(let i = 0; i < el.parents.length; i++){
 			if(person.id == el.parents[i]){
 				if(grand == 0){ el.relationship = "Child"; }
-				if(grand == 1){ el.relationship = "Grandchild"; }
+				else if(grand == 1){ el.relationship = "Grandchild"; }
 				else{
 					let rel = "Great-";
 					for(let k = 2; k < grand; k++){
@@ -178,11 +178,13 @@ function findDescendants(person, people, output = [], grand = 0){
 	});
 	
 	if (generation.length == 0){ // Terminating condition.
-		return null;
+		return output;
 	}
-	output.concat(generation);
+	
+	output = output.concat(generation);
 	grand++;
-	for(let j = 0; j < generation.length; i++){ // Find this generation's children.
+	
+	for(let j = 0; j < generation.length; j++){ // Find this generation's children.
 		output = findDescendants(generation[j], people, output, grand);
 	}
 	return output;
