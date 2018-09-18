@@ -105,7 +105,7 @@ function searchButton(){
 function displayInTable(peopleArray){
 	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
 	for(let i = 0; i < peopleArray.length; i++){
-		output += '<tr><td><button onClick="mainMenu(peopleArray[i])">Select this person</button> &nbsp </td><td>';
+		output += '<tr><td><button onClick="mainMenu(currentArray['+i+'])">Select this person</button> &nbsp </td><td>';
 		output += peopleArray[i].firstName + " ";
 		output += peopleArray[i].lastName;
 		output += "</td>";
