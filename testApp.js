@@ -92,9 +92,6 @@ function searchButton(){
 	document.getElementById("lookupArea").innerHTML = output;
 }
 
-function tableButton(){
-	//mainMenu the person. Go by id
-}
 
 function displayInTable(peopleArray){
 	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
