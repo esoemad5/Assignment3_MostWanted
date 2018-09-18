@@ -74,7 +74,7 @@ function searchButton(){
 	}
 	
 	currentArray = shortenedArray;
-	document.getElementById("tableData").innerHTML = displayInTable(currentArray);
+	document.getElementById("tableData").innerHTML = displayInTable(currentArray, false);
 
 	//console.log(searchTerm, searchCriteria);
 }
@@ -88,19 +88,23 @@ function searchButton(){
 	let output = "";
 	
 	// make a new array for the table.
+	person.relstionship = ""
 	currentArray = [person];
 	
 	// add parents
 	if(findParents(person, people) != null){
 		findParents(person, people).map(function(el){
+			el.relationship = "Parent";
 			currentArray.push(el);
 		});
 	}
 
 	
-	// add spouse, test for null
-	if(findSpouse(person, people) != null){
-		currentArray.push(findSpouse(person, people));
+	// add spouse
+	let spouse = findSpouse(person, people)
+	if(spouse != null){
+		spouse.relstionship = "Spouse";
+		currentArray.push(spouse);
 	}
 	
 	// add descendants
@@ -109,13 +113,26 @@ function searchButton(){
 	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
  
 	//document.getElementById("lookupArea").innerHTML = output;
+	console.log(currentArray);
 }
 
 
-function displayInTable(peopleArray){
-	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
+function displayInTable(peopleArray, showRelationshipToElement0){
+	let output = ""
+	if(showRelationshipToElement0){
+		output += "<tr><th>Select this person</th><th>Relationship to Selection</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
+
+	}
+	else{
+		
+		output += "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
+		console.log(output);
+
+	}
 	for(let i = 0; i < peopleArray.length; i++){
+		console.log(i);
 		output += '<tr><td><button onClick="mainMenu(currentArray['+i+'])">Select this person</button> &nbsp </td><td>'; // There is a possible issue with this line if the rest of the code is modified. Check here if there is an issue with the people butttons.
+		if(showRelationshipToElement0){ output += peopleArray[i].relationship; output += "</td><td>" }
 		output += peopleArray[i].firstName + " ";
 		output += peopleArray[i].lastName;
 		output += "</td>";
