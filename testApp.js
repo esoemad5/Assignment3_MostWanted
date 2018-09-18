@@ -264,7 +264,7 @@ function searchById(input, array) {
 
 function searchByFirstName(input, array) {
 	let newArray = array.filter(function(el){
-		if(el.firstName == input){
+		if(el.firstName.toLowerCase() == input.toLowerCase()){
 			return true;
 		}
 	});
@@ -273,7 +273,7 @@ function searchByFirstName(input, array) {
 
 function searchByLastName(input, array) {
 	let newArray = array.filter(function(el){
-		if(el.lastName == input){
+		if(el.lastName.toLowerCase() == input.toLowerCase()){
 			return true;
 		}
 	});
@@ -282,7 +282,7 @@ function searchByLastName(input, array) {
 
 function searchByGender(input, array){
   let newArray = array.filter(function(el){
-    if(el.gender == input) 
+    if(el.gender.toLowerCase() == input.toLowerCase()) 
     {
       return true;
     }
@@ -325,7 +325,7 @@ function searchByWeight(input, array) {
 function searchByEyeColor(input, array){
   let newArray = array.filter(function(el)
   {
-    if(el.eyeColor == input) 
+    if(el.eyeColor.toLowerCase() == input.toLowerCase()) 
     {
       return true;
     }
@@ -337,7 +337,7 @@ function searchByEyeColor(input, array){
 function searchByOccupation(input, array){
 	let newArray = array.filter(function(el)
 	{
-		if(el.occupation == input){
+		if(el.occupation.toLowerCase() == input.toLowerCase()){
 			return true;
 		}
 	});
