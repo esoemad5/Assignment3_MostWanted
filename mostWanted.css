@@ -1,10 +1,10 @@
 
 
 #header{
-	height: 16%;
+	height: 12%;
 	color: black;
 	padding-bottom: 20px;
-	padding-top: 8%;
+	padding-top: 7%;
 	margin-top: 0px;
 	font-size: 20px;
 }
@@ -21,6 +21,6 @@ td{
 body, html{
 	background-image: linear-gradient(to top, #30cfd0 0%, #acffc9 100%);
 	background-repeat: no-repeat;
-	height: 120%;
+	height: 125%;
 	background-size: cover;
 }
