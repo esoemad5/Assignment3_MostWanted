@@ -108,14 +108,16 @@ function searchButton(){
 	}
 	
 	// add descendants
-	findDescendants(person, people);
-	
+	let descendants = findDescendants(person, people);
+	if( descendants != null){
+		currentArray.concat(descendants);
+	}
 	//make array into table.
 	document.getElementById("tableData").innerHTML = displayInTable(currentArray, true);
  
 	//document.getElementById("lookupArea").innerHTML = output; Only for a joke
 	
-	console.log(currentArray);
+	//console.log(currentArray);
 }
 
  /*
@@ -129,9 +131,7 @@ function findSpouse(person, people){
 		if(person.currentSpouse == people[i].id){
 			let output = []
 			output.push(people[i]);
-			//console.log(output);
 			return output;
-			//return people[i];
 		}
 	}
 }
@@ -184,9 +184,10 @@ function findDescendants(person, people, output = [], grand = 0){
 	output = output.concat(generation);
 	grand++;
 	
-	for(let j = 0; j < generation.length; i++){ // Find this generation's children.
+	for(let j = 0; j < generation.length; j++){ // Find this generation's children.
 		output = findDescendants(generation[j], people, output, grand);
 	}
+	return output;
 }
 
 /*
