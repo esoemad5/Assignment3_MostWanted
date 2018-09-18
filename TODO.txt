@@ -1,5 +1,5 @@
 Validation:
-	Program does this intrinsicly. If input is not vaild, the search will return 0 results and nothing will happen. Would be nice if search terms were not case sensitive.
+	Program does this intrinsicly. If input is not vaild, the search will return 0 results and nothing will happen. Searches are not case-sensitive.
 Search on single critera:
 	done
 Search on 2-5 critera:
