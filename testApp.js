@@ -86,17 +86,25 @@ function searchButton(){
  */
  function mainMenu(person){ // On click of a button next to a person in the table.
 	//let output = "";
-	console.log(person);
+	
 	// make a new array for the table.
-	//currentArray = [person];
+	currentArray = [person];
+	console.log(currentArray);
+	
 	// add parents, test for null
-	//currentArray += findParents(person);
+	//currentArray += findParents(person, people);
+	findParents(person, people).map(function(el){
+		currentArray.push(el);
+	});
+	console.log(currentArray);
+	
 	// add spouse, test for null
-	//currentArray.push(findSpouse);
+	//currentArray.push(findSpouse(person, people));
+	
 	// add descendants
 	// need to rewrite function to be recursive and look past 1 generation
+	
 	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
- 
  
 	//document.getElementById("lookupArea").innerHTML = output;
 }
@@ -105,7 +113,7 @@ function searchButton(){
 function displayInTable(peopleArray){
 	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
 	for(let i = 0; i < peopleArray.length; i++){
-		output += '<tr><td><button onClick="mainMenu(currentArray['+i+'])">Select this person</button> &nbsp </td><td>';
+		output += '<tr><td><button onClick="mainMenu(currentArray['+i+'])">Select this person</button> &nbsp </td><td>'; // There is a possible issue with this line if the rest of the code is modified. Check here if there is an issue with the people butttons.
 		output += peopleArray[i].firstName + " ";
 		output += peopleArray[i].lastName;
 		output += "</td>";
