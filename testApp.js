@@ -1,12 +1,5 @@
-/*
-Build all of your functions for displaying and gathering information below (GUI).
-*/
-
 /* Bug List:
  */
-
-// app is the function called to start the entire application
-
 
 let year = 2018;
 let people = data;
@@ -18,7 +11,6 @@ function resetButton(){
 	addAge(people);
 	document.getElementById("tableData").innerHTML = "";
 	currentArray = people;
-	//document.getElementById("lookupArea").innerHTML = "";
 	
 	alert("Search terms reset.");
 }
@@ -73,8 +65,6 @@ function searchButton(){
 	
 	currentArray = shortenedArray;
 	document.getElementById("tableData").innerHTML = displayInTable(currentArray, false);
-
-	//console.log(searchTerm, searchCriteria);
 }
 
 /*
@@ -114,10 +104,6 @@ function searchButton(){
 	}
 	//make array into table.
 	document.getElementById("tableData").innerHTML = displayInTable(currentArray, true);
- 
-	//document.getElementById("lookupArea").innerHTML = output; Only for a joke
-	
-	//console.log(currentArray);
 }
 
 function displayInTable(peopleArray, showRelationshipToElement0){ // Returns the html script to show search results.
@@ -357,46 +343,3 @@ function searchByOccupation(input, array){
 	});
 	return newArray;
 }
-
-
-
-
-/* Code that my be needed later
-
-// alerts a list of people
-function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n"));
-}
-
-function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
-  var personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
-  alert(personInfo);
-}
-
-// function that prompts and validates user input
-function promptFor(question, callback){
-  do{
-    var response = prompt(question).trim();
-  } while(!response || !callback(response));
-  return response;
-}
-
-// helper function to pass into promptFor to validate yes/no answers
-function yesNo(input){
-  return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
-}
-
-// helper function to pass in as default promptFor validation
-function chars(input){
-  return true; // default validation only
-}
-
-
-
-*/
