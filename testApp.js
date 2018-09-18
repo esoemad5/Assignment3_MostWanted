@@ -85,27 +85,29 @@ function searchButton(){
  * Info is always shown, show a table of selection, parents, spouse and descendants (in that order). Extra table column naming their relationship. Put it first (after buttons).
  */
  function mainMenu(person){ // On click of a button next to a person in the table.
-	let output = "";
+	//let output = "";
+	console.log("mainMenu");
 	// make a new array for the table.
-	currentArray = [person];
+	//currentArray = [person];
 	// add parents, test for null
-	currentArray += findParents(person);
+	//currentArray += findParents(person);
 	// add spouse, test for null
-	currentArray.push(findSpouse);
+	//currentArray.push(findSpouse);
 	// add descendants
 	// need to rewrite function to be recursive and look past 1 generation
 	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
  
  
-	document.getElementById("lookupArea").innerHTML = output;
+	//document.getElementById("lookupArea").innerHTML = output;
 }
 
 
 function displayInTable(peopleArray){
 	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
-	
+	let a = [7, 8];
 	for(let i = 0; i < peopleArray.length; i++){
-		output += '<tr><td><button onClick="mainMenu('+peopleArray[i]+')">Select this person</button> &nbsp </td><td>';
+		//output += '<tr><td><button onClick="mainMenu('+peopleArray[i]+')">Select this person</button> &nbsp </td><td>';
+		output += '<tr><td><button onClick="console.log(' + a[0] + ');">Select this person</button> &nbsp </td><td>';
 		output += peopleArray[i].firstName + " ";
 		output += peopleArray[i].lastName;
 		output += "</td>";
