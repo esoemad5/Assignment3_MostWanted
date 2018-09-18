@@ -84,7 +84,7 @@ function searchButton(){
  * Need to show family, info, and descendants
  *
  */
- function mainMenu(){ // On click of a button next to a person in the table.
+ function mainMenu(person){ // On click of a button next to a person in the table.
 	let output = "";
 	//Need to change the table. Leave the button? New column is relation to found person. Show found person in another table above the family table?
  
@@ -98,8 +98,9 @@ function tableButton(){
 
 function displayInTable(peopleArray){
 	let output = "<tr><th>Select this person</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>Eye Color</th><th>Occupation</th></tr>";
+	
 	for(let i = 0; i < peopleArray.length; i++){
-		output += "<tr><td></td><td>";
+		output += '<tr><td><button onClick="mainMenu('+peopleArray[i]+')">Select this person</button> &nbsp </td><td>';
 		output += peopleArray[i].firstName + " ";
 		output += peopleArray[i].lastName;
 		output += "</td>";

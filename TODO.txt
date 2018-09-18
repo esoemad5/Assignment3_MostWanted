@@ -8,7 +8,7 @@ Search on 2-5 critera:
 	Works, but Joey and Ellen Madden have all the same traits. Need to allow user to pick from a shortened list.
 
 Lookup Info:
-	Doesn't work.
+	works
 
 lookup descendants with recursion:
 	Can find children, but not all children. does not use recursion. Also returns it in a dumb way.
