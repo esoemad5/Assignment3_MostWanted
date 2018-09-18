@@ -82,11 +82,19 @@ function searchButton(){
 /*
  * Main Menu stuff.
  * Need to show family, info, and descendants
- *
+ * Info is always shown, show a table of selection, parents, spouse and descendants (in that order). Extra table column naming their relationship. Put it first (after buttons).
  */
  function mainMenu(person){ // On click of a button next to a person in the table.
 	let output = "";
-	//Need to change the table. Leave the button? New column is relation to found person. Show found person in another table above the family table?
+	// make a new array for the table.
+	currentArray = [person];
+	// add parents, test for null
+	currentArray += findParents(person);
+	// add spouse, test for null
+	currentArray.push(findSpouse);
+	// add descendants
+	// need to rewrite function to be recursive and look past 1 generation
+	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
  
  
 	document.getElementById("lookupArea").innerHTML = output;
