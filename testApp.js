@@ -118,7 +118,7 @@ function searchButton(){
 }
 
  /*
-  * Return a people object that is the person's currentSpouse. Returns null if the person is single. testing returning an array length 1
+  * Returns a people array of the person's spouse(s). Changed output from an object to an array because of a bug. Turns out, I was just spelling a variable wrong. On the bright side, it can handle pollygamy.
   */
 function findSpouse(person, people){
 	if(person.currentSpouse == null){
@@ -152,8 +152,10 @@ function findChildren(person, people){
 	return output;
 }
 
-
-function findDescendants(person, people){ 
+/*
+ * Returns an array of all children, grand-children, great-grandchildren, and so on.
+ */
+function findDescendants(person, people, output = []){ 
 	
 	
 	if (output.length == 0){
