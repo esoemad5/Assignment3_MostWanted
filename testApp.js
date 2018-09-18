@@ -3,8 +3,6 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 /* Bug List:
- * Joey and Elen are the same person. Makes searching by traits wonky.
- * Sometimes quitting in searchByTraits returns an error in the console (filteredPeople.length is undefined). Somehow the function searchByTraits keeps happening dispite hitting a return statement. Need to look at all the things that call searchByTraits.
  */
 
 // app is the function called to start the entire application
@@ -84,7 +82,7 @@ function searchButton(){
  * Need to show family, info, and descendants
  * Info is always shown, show a table of selection, parents, spouse and descendants (in that order). Extra table column naming their relationship. Put it first (after buttons).
  */
- function mainMenu(person){ // On click of a button next to a person in the table.
+ function mainMenu(person){ // On click of a 'Select this person' button.
 	let output = "";
 	
 	// make a new array for the table.
@@ -107,22 +105,15 @@ function searchButton(){
 			el.relationship = "Spouse";
 			currentArray.push(el);
 		});
-		
-		/*
-		console.log("here");
-		spouse.relstionship = "Spouse";
-		console.log(spouse.relationship);
-		currentArray.push(spouse);
-		*/
 	}
 	
 	// add descendants
 	// need to rewrite function to be recursive and look past 1 generation
 	
-	//make array into table (need to write new function since we have an extra column. Maybe put a boolean in displayInTable
+	//make array into table.
 	document.getElementById("tableData").innerHTML = displayInTable(currentArray, true);
  
-	//document.getElementById("lookupArea").innerHTML = output;
+	//document.getElementById("lookupArea").innerHTML = output; Only for a joke
 	console.log(currentArray);
 }
 
@@ -155,6 +146,16 @@ function findChildren(person, people){
 			}
 		}
 	});
+	if (output.length == 0){
+		return null;
+	}
+	return output;
+}
+
+
+function findDescendants(person, people){ 
+	
+	
 	if (output.length == 0){
 		return null;
 	}
@@ -199,7 +200,6 @@ function addAge(people){
 
 
 // Search Functions. All return a new, shorter array.
-// TODO: Add searchByFirstName and searchByLastName; make functions work with new way of input.
 
 function searchById(input, array) {
 	let newArray = array.filter(function(el){
