@@ -85,21 +85,23 @@ function searchButton(){
  * Info is always shown, show a table of selection, parents, spouse and descendants (in that order). Extra table column naming their relationship. Put it first (after buttons).
  */
  function mainMenu(person){ // On click of a button next to a person in the table.
-	//let output = "";
+	let output = "";
 	
 	// make a new array for the table.
 	currentArray = [person];
-	console.log(currentArray);
 	
-	// add parents, test for null
-	//currentArray += findParents(person, people);
-	findParents(person, people).map(function(el){
-		currentArray.push(el);
-	});
-	console.log(currentArray);
+	// add parents
+	if(findParents(person, people) != null){
+		findParents(person, people).map(function(el){
+			currentArray.push(el);
+		});
+	}
+
 	
 	// add spouse, test for null
-	//currentArray.push(findSpouse(person, people));
+	if(findSpouse(person, people) != null){
+		currentArray.push(findSpouse(person, people));
+	}
 	
 	// add descendants
 	// need to rewrite function to be recursive and look past 1 generation
